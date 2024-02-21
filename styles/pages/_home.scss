@@ -1,0 +1,733 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.hero-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  background: url('../../app/assets/images/home.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .2);
+}
+
+.hero-content {
+  position: relative;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.ini-button {
+  width: 170px;
+  height: 50px;
+  margin-top: 40px;
+  border-radius: 50px;
+  outline: none;
+  font-size: 15px;
+  text-transform: capitalize;
+  background-color: #0D73D3;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all ease .2s;
+}
+
+.ini-button:hover {
+  border-color: #fff;
+  color: #fff;
+  background: transparent;
+}
+
+.container-button {
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.button-telu {
+  width: auto;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-right: 15px;
+  border-radius: 50px;
+  border: 1px #000;
+  outline: none;
+  font-size: 15px;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: #000;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: all ease .2s;
+
+}
+
+.button-telu:hover {
+  border-color: #fff;
+  color: #fff;
+  background: #0D73D3;
+}
+
+
+.container-gambar {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 2%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  columns: 4;
+  column-gap: 20px;
+}
+
+.container-gambar .box {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.container-gambar .box .image {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.icon-size {
+  font-size: 30px;
+}
+
+.edit{
+  margin-top: 6%;
+  margin-bottom: 5%;
+}
+.upload {
+  &__Unggah{
+    margin-top: 9%;
+    justify-content: center;
+  }
+  &__judul-upload {
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: fit-content;
+    font-size: 36px;
+    font-weight: bolder;
+    text-transform: capitalize;
+    text-align: left;
+  }
+
+  &__wrapper {
+    margin: auto;
+    max-width: 640px;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+
+  &__upload-container {
+    background-color: rgb(239, 239, 239);
+    border-radius: 6px;
+    padding: 10px;
+  }
+
+  &__border-container {
+    border: 5px dashed rgba(198, 198, 198, 0.65);
+    /*   border-radius: 4px; */
+    padding: 20px;
+  }
+
+  &__border-container p {
+    color: #130f40;
+    font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: -1px;
+    margin-top: 100px;
+    margin-bottom: 0;
+    opacity: 0.65;
+  }
+
+  &__file-browser {
+    text-decoration: none;
+    color: rgb(22, 42, 255);
+    border-bottom: 3px dotted rgba(22, 22, 255, 0.85);
+  }
+
+  &__file-browser:hover {
+    color: rgb(0, 0, 255);
+    border-bottom: 3px dotted rgba(0, 0, 255, 0.85);
+  }
+
+  &__icon-container {
+    opacity: 0.55;
+  }
+
+  &__icon-upload {
+    margin-top: 50px;
+    height: 100px;
+    width: 100px;
+  }
+
+  &__form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label-form {
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  &__upload-button {
+    background-color: #0B60B0;
+    border-radius: 25px;
+    padding: 6.5px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 7%;
+    &:hover {
+      background-color: #0D73D3;
+    }
+  }
+}
+
+.detail {
+  &__container-detail {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+
+  &__gambar {
+    position: relative;
+    max-width: 1000px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 50px;
+  }
+
+  &__btn-download {
+    background-color: #0B60B0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: 275px;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__btn-download:hover {
+    background-color: #2A83C9;
+    transform: scale(1.1);
+    transition: all 0.5s;
+  }
+
+  @media (max-width: 576px) {
+    &__btn-download {
+      width: 120px;
+      height: 20px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    &__btn-download {
+      width: 80px;
+      height: 15px;
+    }
+  }
+
+  &__button-unduh {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__button-grup {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  &__like-button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0B60B0;
+    color: #fff;
+    border: none;
+    width: 75px;
+    border-radius: 20px;
+    /* Border radius for rounded corners */
+    transition: background-color 0.3s ease;
+  }
+
+  &__like-button:hover {
+    background-color: #3498db;
+    /* Hover color */
+  }
+
+  &__like-button.liked {
+    background-color: #e74c3c;
+  }
+
+  &__bagikan-button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0B60B0;
+    color: #fff;
+    border: none;
+    width: 100px;
+    border-radius: 20px;
+    /* Border radius for rounded corners */
+    transition: background-color 0.3s ease;
+  }
+
+  &__bagikan-button:hover {
+    background-color: #3498db;
+    /* Hover color */
+  }
+
+  &__bagikan-button.liked {
+    background-color: #e74c3c;
+  }
+
+  &__simpan-button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0B60B0;
+    color: #fff;
+    border: none;
+    width: 100px;
+    border-radius: 20px;
+    /* Border radius for rounded corners */
+    transition: background-color 0.3s ease;
+  }
+
+  &__simpan-button:hover {
+    background-color: #3498db;
+    /* Hover color */
+  }
+
+  &__simpan-button.liked {
+    background-color: #e74c3c;
+  }
+
+
+  &__rincian {
+    position: absolute;
+  }
+
+  &__row-rinci {
+    display: flex;
+    line-height: 24px;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .subscribe {
+    &__gambar-awal {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    &__judul-subs {
+      margin-top: 20px;
+      position: relative;
+      transform: translateX(40%);
+    }
+
+    &__box {
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      background: #f6f6;
+      border-radius: 5px;
+      border: 1px solid #e5e5e5;
+      box-shadow: 0 1px 5px rgba(156, 156, 156, 0.6);
+    }
+
+    &__text-member {
+      color: #ED7E11;
+    }
+  }
+}
+
+.image-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-detail {
+  position: relative;
+  max-width: 1000px;
+  max-height: 750px;
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 50px;
+  box-shadow: rgba(0, 0, 0, .8);
+}
+
+.container-judul-gambar {
+  margin-top: 20px;
+  // margin-bottom: 10px;
+}
+
+.judul-gambar-detail {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.content {
+  border: 2px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.content .heart {
+  font-size: 20px;
+}
+
+.heart:hover {
+  color: red;
+}
+
+.like {
+  margin-left: 10px;
+}
+
+.simpan {
+  margin-left: 10px;
+}
+
+.bagikan {
+  margin-left: 10px;
+}
+
+.unduh {
+  margin-left: 10px;
+}
+
+.text-detail-kiri {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.text-detail-kanan {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.foto-profil {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.foto-profil .image-foto-profil {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.text-card-detail {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.text-card-detail-bawah {
+  font-size: 15px;
+  color: grey;
+  margin-top: 5px;
+}
+
+.container-member {
+  border: 1px solid;
+  padding: 3px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.gifIcon {
+  width: 40px;
+  height: auto;
+}
+
+.text-gelar {
+  margin-left: 10px;
+}
+
+.jumlah-comment {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-left: 65px;
+}
+
+.container-comment {
+  margin-top: 20px;
+  margin-left: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 1000px;
+}
+
+.foto-profil-comment {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.foto-profil-comment .image-profil-comment {
+  width: 100%;
+  height: 100%;
+}
+
+.text-area-comment {
+  width: 750px;
+  margin-left: 8px;
+}
+
+.text-area {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  resize: none;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+}
+
+/* Button styling */
+.send-button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 12px 40px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover animation */
+.send-button:hover {
+  background-color: transparent;
+  outline: 2px solid;
+  color: black;
+  border-color: grey;
+}
+
+/* Add some margin to improve spacing */
+.button-container {
+  margin-top: 6px;
+  margin-left: 10px;
+}
+
+.username-detail {
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  color: #000;
+}
+
+.tanggal-comment {
+  margin-left: 5px;
+  font-size: 14px;
+  color: #656f79;
+
+}
+
+
+
+
+.ui-w-80 {
+  width: 80px !important;
+  height: auto;
+}
+
+.btn-default {
+  border-color: rgba(24, 28, 33, 0.1);
+  background: rgba(0, 0, 0, 0);
+  color: #4E5155;
+}
+
+label.btn {
+  margin-bottom: 0;
+}
+
+.btn-outline-primary {
+  border-color: #26B4FF;
+  background: transparent;
+  color: #26B4FF;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.text-light {
+  color: #babbbc !important;
+}
+
+
+.card {
+  background-clip: padding-box;
+  box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
+}
+
+.row-bordered {
+  overflow: hidden;
+}
+
+.account-settings-fileinput {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.text-th {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.icon-subscribe-kecil {
+  font-size: 20px;
+}
+
+.judul-text-subscribe {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.harga-text-subscribe {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.bulan-text-subscribe {
+  font-weight: 900;
+  font-size: 16px;
+  color: grey;
+  margin-left: 3px;
+}
+
+.jumlah-text-subscribe {
+  font-size: 14px;
+  font-weight: bolder;
+  color: #7C7A7A;
+}
+
+.text-subscribe-pajak {
+  font-size: 12px;
+  color: #7C7A7A;
+  margin-top: 5px;
+}
+
+.icon-bunder {
+  margin-top: 20px;
+  background-color: #D4F0FF;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+}
+.icon-detail-subs {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  font-size: 45px;
+}
+.iki-icon-telu {
+  color: #1878ED;
+}
+.atas-subs {
+  font-size: 20px;
+  font-weight: 900;
+}
+.bawah-subs {
+  text-align: center;
+  font-size: 16px;
+}
+.text-subs-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gambar-subs {
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 30px;
+}
+
+.judul-subs {
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.sub-judul-subs {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+

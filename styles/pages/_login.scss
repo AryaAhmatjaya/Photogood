@@ -1,0 +1,35 @@
+.roedi-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: url("../../app/assets/images/login.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.roedi-image::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.roedi-content {
+  position: relative;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+// .roedi-content-inner{
+//   margin: 0 auto;
+//   background: rgba(0, 0, 0, 0.5);
+//   padding: 20px;
+// }

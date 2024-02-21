@@ -1,0 +1,51 @@
+
+
+.kewil-content {
+  position: relative;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}
+
+.kewil-isi{
+    height: auto;
+    width: 65%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.img-check{
+    width: 150px;
+    height: 150px;
+}
+
+.img-cross{
+  width: 120px;
+  height: 120px;
+}
+
+.button-check {
+  width: 320px;
+  height: 45px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  text-transform: capitalize;
+  background-attachment: #0D73D3;
+  border:solid 2px #000000;
+  cursor: pointer;
+  transition: all ease .2s;
+}
+
+// .roedi-content-inner{
+//   margin: 0 auto;
+//   background: rgba(0, 0, 0, 0.5);
+//   padding: 20px;
+// }

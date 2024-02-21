@@ -1,0 +1,23 @@
+$theme-colors: (
+    'primary': #22e11c,
+    'secondary': rgb(11,96,176),
+    'success': #22e11c,
+    'info': #d9ff50,
+    'warning': #ffbe0b,
+    'danger': #ff0000,
+    'light': #c0ccda,
+    'dark': #000103,
+);
+
+// scss-docs-start theme-color-variables
+$primary : #070f06;
+$secondary: #3bd7ec;
+
+// scss-docs-start neutral-color-variables
+$neutral-primary: #1b1b1bf5;
+$neutral-secondary: #616161;
+$neutral-subtle: #9e9e9e;
+$neutral-input: #d9e0e4;
+$neutral-separator: #f1f3f5;
+$neutral-light: #fafbfb;
+$white: #ffffff;

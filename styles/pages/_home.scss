@@ -85,6 +85,12 @@
   cursor: pointer;
   transition: all ease .2s;
 
+  &.active {
+    background: #0D73D3;
+    border-color: #fff;
+    color: #fff;
+  }
+
 }
 
 .button-telu:hover {
@@ -100,7 +106,7 @@
   margin-top: 2%;
   margin-right: 5%;
   margin-bottom: 5%;
-  columns: 4;
+  columns: 5;
   column-gap: 20px;
 }
 
@@ -111,8 +117,13 @@
 
 .container-gambar .box .image {
   max-width: 100%;
+  width: 400px;
   border-radius: 15px;
-}
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
 
 .icon-size {
   font-size: 30px;

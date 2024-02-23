@@ -403,21 +403,21 @@
   }
 }
 
-.image-container {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 50px;
-  display: flex;
-  justify-content: center;
-}
+// .image-container {
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+//   margin-left: 30px;
+//   display: flex;
+//   justify-content: center;
+// }
 
 .image-detail {
   position: relative;
-  max-width: 1000px;
-  max-height: 750px;
-  width: auto;
-  height: auto;
-  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
   margin-right: 50px;
   box-shadow: rgba(0, 0, 0, .8);
 }
@@ -527,16 +527,14 @@
   font-size: 18px;
   font-weight: 700;
   margin-top: 20px;
-  margin-left: 65px;
 }
 
 .container-comment {
   margin-top: 20px;
-  margin-left: 70px;
+  margin-left: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 1000px;
 }
 
 .foto-profil-comment {
@@ -550,10 +548,12 @@
 .foto-profil-comment .image-profil-comment {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .text-area-comment {
-  width: 750px;
+  position: relative;
   margin-left: 8px;
 }
 
@@ -572,11 +572,13 @@
   background-color: #4CAF50;
   color: #fff;
   border: none;
-  padding: 12px 40px;
-  margin-bottom: 10px;
+  padding: 8px 32px;
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 
 /* Hover animation */

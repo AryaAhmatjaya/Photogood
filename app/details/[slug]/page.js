@@ -81,19 +81,12 @@ export default function Home({ params: { slug } }) {
 
       <div className="container-details">
         <div className="row">
-          <div className="col-6">
+          <div className="col-7">
             <div className="image-container">
               <img src={lokasi_file} className="image-detail"></img>
             </div>
           </div>
-          <div
-            className="col"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
+          <div className="col-5">
             <div className="card justify-content-center">
               <div className="list-group list-group-flush">
                 <li className="list-group-item">
@@ -234,7 +227,7 @@ export default function Home({ params: { slug } }) {
               </div>
             </div>
           </div>
-          <div className="container-comment-detail">
+          <div className="container-comment-detail mt-5">
             <div className="jumlah-comment">{comment?.length} Komentar</div>
             <div className="container-comment">
               <div className="foto-profil-comment">

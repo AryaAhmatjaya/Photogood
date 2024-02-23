@@ -110,6 +110,10 @@
   column-gap: 20px;
 }
 
+.container-comment-detail {
+  margin-top: 32px;
+}
+
 .container-gambar .box {
   width: 100%;
   margin-bottom: 20px;
@@ -554,11 +558,11 @@
 
 .text-area-comment {
   position: relative;
-  margin-left: 8px;
+  margin-left: 12px;
 }
 
 .text-area {
-  width: 100%;
+  width: 105%;
   height: 50px;
   padding: 10px;
   box-sizing: border-box;
@@ -572,13 +576,13 @@
   background-color: #4CAF50;
   color: #fff;
   border: none;
-  padding: 8px 32px;
+  padding: 6px 32px;
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: -25px;
+  top: 7px;
 }
 
 /* Hover animation */

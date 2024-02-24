@@ -20,6 +20,7 @@ export default function Home({ params: { slug } }) {
   const [gifData, setGifData] = useState({});
   const [userData, setUserData] = useState({});
   const [commentValue, setCommentValue] = useState("");
+  const [displayedComments, setDisplayedComments] = useState(5);
 
   const fetchGIFData = async () => {
     setLoading(true);
@@ -29,26 +30,6 @@ export default function Home({ params: { slug } }) {
       setLoading(false);
     } catch (error) {
       console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    const tokenLocal = localStorage.getItem("token");
-    if (tokenLocal) {
-      fetchUserDetail(tokenLocal);
-      setToken(tokenLocal);
-    }
-    fetchGIFData();
-  }, [slug]);
-
-  const fetchUserDetail = async (tokenLocal) => {
-    try {
-      const response = await client.get(
-        `v1/show-user-detail?token=${tokenLocal}`
-      );
-      setUserData(response.data);
-    } catch (error) {
-      console.error("Error fetching user detail:", error);
     }
   };
 
@@ -63,6 +44,99 @@ export default function Home({ params: { slug } }) {
     created_at,
     foto_id,
   } = gifData;
+
+  useEffect(() => {
+    const tokenLocal = localStorage.getItem("token");
+    if (tokenLocal) {
+      fetchUserDetail(tokenLocal);
+      setToken(tokenLocal);
+    }
+    fetchGIFData();
+  }, [slug]);
+
+  const renderComment = () => {
+    const commentsToDisplay = comment?.slice(0, displayedComments);
+    return commentsToDisplay?.map((comment, index) => (
+      <div className="container-comment" key={index}>
+        <div className="foto-profil-comment">
+          {comment?.user?.foto_profil ? (
+            <img
+              src={comment?.user?.foto_profil}
+              alt="foto profil user"
+              className="image-profil-comment"
+            ></img>
+          ) : (
+            <Image
+              src={placeholderImage}
+              alt="foto profil user"
+              className="image-profil-comment"
+            ></Image>
+          )}
+        </div>
+        <div
+          className="container-isi-comment"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginLeft: "10px",
+          }}
+        >
+          <div className="username-text">
+            <span className="username-detail">
+              {comment?.user.nama_lengkap || comment?.user.username}
+            </span>
+            <span className="tanggal-comment">
+              {formatTime(comment?.created_at)}
+            </span>
+          </div>
+          <div className="isi-comment">
+            <span className="detail-isi-comment">{comment?.isi_komentar}</span>
+          </div>
+        </div>
+      </div>
+    ));
+  };
+
+  const renderShowMoreButton = () => {
+    if (gifData?.comment?.length > displayedComments) {
+      return (
+        <button
+          className="button-comment fw-bold text-primary mt-4 text-center w-50"
+          onClick={showMoreComments}
+        >
+          Show More
+        </button>
+      );
+    } else if (displayedComments > 5) {
+      return (
+        <button
+          className="button-comment fw-bold text-primary mt-4 text-center w-50"
+          onClick={showLessComments}
+        >
+          Show Less
+        </button>
+      );
+    }
+  };
+
+  const showMoreComments = () => {
+    setDisplayedComments((prev) => prev + 5);
+  };
+
+  const showLessComments = () => {
+    setDisplayedComments(5);
+  };
+
+  const fetchUserDetail = async (tokenLocal) => {
+    try {
+      const response = await client.get(
+        `v1/show-user-detail?token=${tokenLocal}`
+      );
+      setUserData(response.data);
+    } catch (error) {
+      console.error("Error fetching user detail:", error);
+    }
+  };
 
   const formatDate = (createdAt) => {
     const date = new Date(createdAt);
@@ -308,48 +382,8 @@ export default function Home({ params: { slug } }) {
                 </button>
               </div>
             </div>
-
-            {comment?.map((comment, index) => (
-              <div className="container-comment" key={index}>
-                <div className="foto-profil-comment">
-                  {comment?.user?.foto_profil ? (
-                    <img
-                      src={comment?.user?.foto_profil}
-                      alt="foto profil user"
-                      className="image-profil-comment"
-                    ></img>
-                  ) : (
-                    <Image
-                      src={placeholderImage}
-                      alt="foto profil user"
-                      className="image-profil-comment"
-                    ></Image>
-                  )}
-                </div>
-                <div
-                  className="container-isi-comment"
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    marginLeft: "10px",
-                  }}
-                >
-                  <div className="username-text">
-                    <span className="username-detail">
-                      {comment?.user.nama_lengkap || comment?.user.username}
-                    </span>
-                    <span className="tanggal-comment">
-                      {formatTime(comment?.created_at)}
-                    </span>
-                  </div>
-                  <div className="isi-comment">
-                    <span className="detail-isi-comment">
-                      {comment?.isi_komentar}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {renderComment()}
+            {renderShowMoreButton()}
           </div>
         </div>
       </div>

@@ -8,11 +8,53 @@ import { Footer } from "../components/layout/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
+import { useRouter } from "next/navigation";
+import client from "../utils/router";
+
 export default function Home() {
+  const router = useRouter();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [namaLengkap, setNamaLengkap] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (!username || !password) {
+      alert("All fields must be filled!");
+      return;
+    }
+
+    setIsLoading(true);
+    const payload = {
+      username: username,
+      password: password,
+    };
+
+    // Perform login request
+    client
+      .post("/auth/login", payload)
+      .then(async (response) => {
+        setIsLoading(false);
+        if (response.status === 200) {
+          console.log(response);
+          localStorage.setItem("token", response?.data.login_tokens);
+          router.push("/homepage");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("An error occured!");
+        setIsLoading(false);
+      });
+  };
+
   return (
     <>
       {/* <Navbar /> */}
-        <div className="roedi-image">
+      <div className="roedi-image">
         <div className="roedi-content">
           <div className="roedi-content-inner">
             <div>
@@ -33,15 +75,19 @@ export default function Home() {
                 <div className="col-lg-6 mb-5 mb-lg-0">
                   <div className="card">
                     <div className="card-body py-5 px-md-5">
-                      <form className="d-flex flex-column">
+                      <form
+                        className="d-flex flex-column"
+                        onSubmit={handleLogin}
+                      >
                         {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
                         <div className="row">
-                          <div className="col-md-6 mb-4">
+                          <div className="col-md-12 mb-4">
                             <div className="form-outline">
                               <input
                                 type="text"
                                 id="form3Example1"
                                 className="form-control"
+                                onChange={(e) => setUsername(e.target.value)}
                               />
                               <label
                                 className="form-label"
@@ -51,7 +97,7 @@ export default function Home() {
                               </label>
                             </div>
                           </div>
-                          <div className="col-md-6 mb-4">
+                          {/* <div className="col-md-6 mb-4">
                             <div className="form-outline">
                               <input
                                 type="text"
@@ -65,7 +111,7 @@ export default function Home() {
                                 Email
                               </label>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
 
                         {/* <!-- Password input --> */}
@@ -74,6 +120,7 @@ export default function Home() {
                             type="password"
                             id="form3Example4"
                             className="form-control"
+                            onChange={(e) => setPassword(e.target.value)}
                           />
                           <label className="form-label" htmlFor="form3Example4">
                             Password
@@ -95,9 +142,13 @@ export default function Home() {
                         </div>
 
                         {/* <!-- Register buttons --> */}
-                        <div className="text-center">
-                        <p><a className="nav-link" href="../../register"><u>Register</u></a>
-                          Atau daftar melalui</p>
+                        <div className="text-center mt-4">
+                          <p>
+                            <a className="nav-link" href="../../register">
+                              <u>Register</u>
+                            </a>
+                            Atau daftar melalui
+                          </p>
                           <button
                             type="button"
                             className="btn btn-link btn-floating mx-1"

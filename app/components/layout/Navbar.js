@@ -5,19 +5,56 @@ import Image from "next/image";
 import "@/styles/globals.scss";
 import link from "next/link";
 import { NavDropdown } from "react-bootstrap";
+import { useRouter } from "next/navigation";
+
+import placeholderImage from "../../assets/images/placeholder-image-3.png";
+import client from "../../utils/router";
+import { useEffect } from "react";
 
 export const Navbar = () => {
+  const router = useRouter();
+  const [userData, setUserData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+      fetchUserDetail(token);
+    } else {
+      setIsLoggedIn(false);
+      setUserData({});
+    }
+  }, [isLoggedIn]);
+
+  const fetchUserDetail = async (token) => {
+    try {
+      const response = await client.get(`v1/show-user-detail?token=${token}`);
+      setUserData(response.data);
+    } catch (error) {
+      console.error("Error fetching user detail:", error);
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    setUserData({});
+    router.push("/login");
+  };
+
+  console.log(userData);
+
   return (
     <main>
       <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div className="container-navbar">
-          {/* Logo di tengah */}
           <div className="mx-0 static">
             <Image
               className="navbar__pglogo"
@@ -85,27 +122,40 @@ export const Navbar = () => {
                   </a>
                 </li>
               </ul>
-            {/* Daftar menu */}
+              {/* Daftar menu */}
 
               <NavDropdown
                 title={
-                  <Image
-                    src={roedi}
-                    alt="Profile"
-                    className="profile-img"
-                  ></Image>
+                  isLoggedIn ? (
+                    userData?.foto_profil ? (
+                      <img
+                        src={userData?.foto_profil}
+                        alt="Profile"
+                        className="profile-img"
+                      />
+                    ) : (
+                      <Image
+                        src={placeholderImage}
+                        alt="Profile"
+                        className="profile-img"
+                      />
+                    )
+                  ) : (
+                    <span>Guest</span>
+                  )
                 }
-                id="nav-dropdown"
-                show={dropdownOpen}
-                onClick={toggleDropdown}
               >
                 <NavDropdown.Item href="./profile">Profil</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/chat">Chat</NavDropdown.Item>
                 <NavDropdown.Item href="/upload">Upload</NavDropdown.Item>
-                <NavDropdown.Item href="/edit-profil">Edit Profil</NavDropdown.Item>
+                <NavDropdown.Item href="/edit-profil">
+                  Edit Profil
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="">Keluar</NavDropdown.Item>
+                <NavDropdown.Item onClick={handleLogout}>
+                  Keluar
+                </NavDropdown.Item>
               </NavDropdown>
             </div>
           </div>

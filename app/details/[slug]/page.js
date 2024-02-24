@@ -15,8 +15,11 @@ import placeholderImage from "../../assets/images/placeholder-image-3.png";
 import client from "../../utils/router";
 
 export default function Home({ params: { slug } }) {
+  const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(false);
   const [gifData, setGifData] = useState({});
+  const [userData, setUserData] = useState({});
+  const [commentValue, setCommentValue] = useState("");
 
   const fetchGIFData = async () => {
     setLoading(true);
@@ -30,8 +33,24 @@ export default function Home({ params: { slug } }) {
   };
 
   useEffect(() => {
+    const tokenLocal = localStorage.getItem("token");
+    if (tokenLocal) {
+      fetchUserDetail(tokenLocal);
+      setToken(tokenLocal);
+    }
     fetchGIFData();
   }, [slug]);
+
+  const fetchUserDetail = async (tokenLocal) => {
+    try {
+      const response = await client.get(
+        `v1/show-user-detail?token=${tokenLocal}`
+      );
+      setUserData(response.data);
+    } catch (error) {
+      console.error("Error fetching user detail:", error);
+    }
+  };
 
   const {
     judul_foto,
@@ -42,6 +61,7 @@ export default function Home({ params: { slug } }) {
     comment,
     lokasi_file,
     created_at,
+    foto_id,
   } = gifData;
 
   const formatDate = (createdAt) => {
@@ -69,11 +89,41 @@ export default function Home({ params: { slug } }) {
   }
   const fileExtension = lokasi_file?.split(".").pop().toLowerCase();
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+  const onRefresh = async () => {
+    try {
+      await fetchGIFData();
+    } catch (error) {
+      console.error("Error refreshing user detail:", error);
+    }
+  };
+
+  const storeUserComment = async (e) => {
+    e.preventDefault();
+    try {
+      const payload = {
+        foto_id: String(foto_id),
+        user_id: String(userData?.user_id),
+        isi_komentar: commentValue,
+      };
+      const response = await client.post(
+        `v1/store-guest-comment?token=${token}`,
+        payload
+      );
+      await onRefresh();
+      console.log(response?.data, "COMMENT RESPONSE");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // if (loading) {
+  //   return <h1>Loading...</h1>;
+  // }
 
   console.log(gifData);
+  console.log(userData);
+  console.log(commentValue);
+  console.log("token state", token);
 
   return (
     <>
@@ -232,9 +282,9 @@ export default function Home({ params: { slug } }) {
             <div className="container-comment">
               <div className="foto-profil-comment">
                 {/* Change to current user */}
-                {comment?.user?.foto_profil ? (
+                {userData?.foto_profil ? (
                   <img
-                    src={comment?.user?.foto_profil}
+                    src={userData?.foto_profil}
                     alt="foto profil user"
                     className="image-profil-comment"
                   ></img>
@@ -251,8 +301,11 @@ export default function Home({ params: { slug } }) {
                 <textarea
                   className="text-area "
                   placeholder="Tuliskan komentar anda"
+                  onChange={(e) => setCommentValue(e.target.value)}
                 ></textarea>
-                <button class="send-button">Kirim</button>
+                <button class="send-button" onClick={storeUserComment}>
+                  Kirim
+                </button>
               </div>
             </div>
 

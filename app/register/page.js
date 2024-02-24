@@ -1,11 +1,55 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { Footer } from "../components/layout/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { NavGuest } from "../components/layout/NavGuest";
+import { useRouter } from "next/navigation";
+import client from "../utils/router";
 
 export default function Home() {
+  const router = useRouter();
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [namaLengkap, setNamaLengkap] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    if (!username || !email || !password || !namaLengkap) {
+      alert("An error occurred!", "All fields must be filled!");
+      return;
+    }
+
+    setIsLoading(true);
+    const payload = {
+      username: username,
+      password: password,
+      email: email,
+      nama_lengkap: namaLengkap,
+      status: 1,
+    };
+
+    client
+      .post("auth/register", payload)
+      .then((response) => {
+        setIsLoading(false);
+        console.log(response);
+        if (response.status === 200) {
+          alert("Register Success!", "Account registered successfully");
+          router.push("/login");
+        }
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        console.error(error);
+        alert(error.response.data.message);
+      });
+  };
+
   return (
     <>
       {/* <NavGuest /> */}
@@ -29,8 +73,10 @@ export default function Home() {
               <div className="col-lg-6 mb-5 mb-lg-0">
                 <div className="card">
                   <div className="card-body py-5 px-md-5">
-                    <form className="d-flex flex-column">
-                      {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
+                    <form
+                      className="d-flex flex-column"
+                      onSubmit={handleRegister}
+                    >
                       <div className="row">
                         <div className="col-md-6 mb-4">
                           <div className="form-outline">
@@ -38,6 +84,7 @@ export default function Home() {
                               type="text"
                               id="form3Example1"
                               className="form-control"
+                              onChange={(e) => setUsername(e.target.value)}
                             />
                             <label
                               className="form-label"
@@ -50,9 +97,10 @@ export default function Home() {
                         <div className="col-md-6 mb-4">
                           <div className="form-outline">
                             <input
-                              type="text"
+                              type="email"
                               id="form3Example2"
                               className="form-control"
+                              onChange={(e) => setEmail(e.target.value)}
                             />
                             <label
                               className="form-label"
@@ -64,31 +112,30 @@ export default function Home() {
                         </div>
                       </div>
 
-                      {/* <!-- Email input --> */}
                       <div className="form-outline mb-4">
                         <input
-                          type="email"
+                          type="text"
                           id="form3Example3"
                           className="form-control"
+                          onChange={(e) => setNamaLengkap(e.target.value)}
                         />
                         <label className="form-label" htmlFor="form3Example3">
                           Nama Lengkap
                         </label>
                       </div>
 
-                      {/* <!-- Password input --> */}
                       <div className="form-outline mb-4">
                         <input
                           type="password"
                           id="form3Example4"
                           className="form-control"
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                         <label className="form-label" htmlFor="form3Example4">
                           Password
                         </label>
                       </div>
 
-                      {/* <!-- Submit button --> */}
                       <div
                         className="w-100 "
                         style={{ display: "flex", justifyContent: "center" }}
@@ -102,8 +149,7 @@ export default function Home() {
                         </button>
                       </div>
 
-                      {/* <!-- Register buttons --> */}
-                      <div className="text-center">
+                      <div className="text-center mt-4">
                         <a className="nav-link" href="../../login">
                           Sudah punya akun? <u>Silahkan Login</u>
                         </a>
@@ -140,6 +186,3 @@ export default function Home() {
     </>
   );
 }
-
-// To create routes, you must create new folder, and in the folder add page.js
-// example : i want to create profile routes, so i must to create profile folder, and inside profile folder add page.js

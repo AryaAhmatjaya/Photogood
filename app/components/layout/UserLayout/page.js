@@ -7,7 +7,7 @@ export const UserLayout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <main className="container">{children}</main>
+      <main className="">{children}</main>
       <Footer />
     </>
   );

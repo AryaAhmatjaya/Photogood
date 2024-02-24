@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const RenderMasonryGif = ({ gif }) => {
   const getRandomHeight = () => {
-    return Math.floor(Math.random() * 100 + 375);
+    return Math.floor(Math.random() * 120 + 375);
   };
 
   return (

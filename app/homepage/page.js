@@ -9,11 +9,13 @@ import gambar2 from "../assets/images/boat-8515980_1280.jpg";
 import gambar3 from "../assets/images/ladybug-8491654_1280.jpg";
 import gambar4 from "../assets/images/winter-8445565_1280.jpg";
 
+import { useRouter } from "next/navigation";
 import { RenderMasonryGif } from "../components/RenderMasonryGif";
 import client from "../utils/router";
 
 export default function Homepage() {
   // State Fetch Main Data
+  const router = useRouter();
   const [gif, setGIF] = useState([]);
   const [vector, setVector] = useState([]);
   const [photo, setPhoto] = useState([]);

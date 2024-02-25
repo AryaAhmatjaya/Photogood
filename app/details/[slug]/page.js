@@ -11,8 +11,8 @@ import gambar2 from "../../assets/images/boat-8515980_1280.jpg";
 import gambar3 from "../../assets/images/ladybug-8491654_1280.jpg";
 import gambar4 from "../../assets/images/winter-8445565_1280.jpg";
 import placeholderImage from "../../assets/images/placeholder-image-3.png";
-
 import client from "../../utils/router";
+
 
 export default function Home({ params: { slug } }) {
   const [token, setToken] = useState(null);
@@ -129,9 +129,7 @@ export default function Home({ params: { slug } }) {
 
   const fetchUserDetail = async (tokenLocal) => {
     try {
-      const response = await client.get(
-        `v1/show-user-detail?token=${tokenLocal}`
-      );
+      const response = await client.get(`v1/show-user-detail`);
       setUserData(response.data);
     } catch (error) {
       console.error("Error fetching user detail:", error);
@@ -179,10 +177,7 @@ export default function Home({ params: { slug } }) {
         user_id: String(userData?.user_id),
         isi_komentar: commentValue,
       };
-      const response = await client.post(
-        `v1/store-guest-comment?token=${token}`,
-        payload
-      );
+      const response = await client.post(`v1/store-guest-comment`, payload);
       await onRefresh();
       console.log(response?.data, "COMMENT RESPONSE");
     } catch (error) {
@@ -211,9 +206,12 @@ export default function Home({ params: { slug } }) {
             </div>
           </div>
           <div className="col-5">
-            <div className="card justify-content-center">
+            <div className="card card-details justify-content-center">
               <div className="list-group list-group-flush">
-                <li className="list-group-item">
+                <li
+                  className="list-group-item"
+                  style={{ borderRadius: "24px" }}
+                >
                   <div className="container-judul-gambar">
                     <div className="judul-gambar-detail">{judul_foto}</div>
                   </div>
@@ -284,7 +282,10 @@ export default function Home({ params: { slug } }) {
                     </div>
                   </div>
                 </li>
-                <li className="list-group-item">
+                <li
+                  className="list-group-item"
+                  style={{ borderRadius: "24px" }}
+                >
                   <div className="container-profil-detail row">
                     <div
                       className="col-2"

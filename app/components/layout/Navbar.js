@@ -35,7 +35,7 @@ export const Navbar = () => {
 
   const fetchUserDetail = async (token) => {
     try {
-      const response = await client.get(`v1/show-user-detail?token=${token}`);
+      const response = await client.get(`v1/show-user-detail`);
       setUserData(response.data);
     } catch (error) {
       console.error("Error fetching user detail:", error);
@@ -145,7 +145,7 @@ export const Navbar = () => {
                   )
                 }
               >
-                <NavDropdown.Item href="./profile">Profil</NavDropdown.Item>
+                <NavDropdown.Item href="/profile">Profil</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/chat">Chat</NavDropdown.Item>
                 <NavDropdown.Item href="/upload">Upload</NavDropdown.Item>

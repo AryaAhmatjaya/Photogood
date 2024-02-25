@@ -13,7 +13,9 @@
 }
 
 .gambar-profile {
-  border: 2px solid #333;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid #333;
   border-radius: 50px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   height: 100px;
@@ -46,23 +48,24 @@
 }
 
 .img-row {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
   justify-content: center;
   width: auto;
   margin: auto;
+  margin-top: 16px;
 }
 
 .img-daftar {
-  max-width: 30%;
-  max-height: 25%;
   margin: auto;
   padding: 15px;
+  text-decoration: none;
 }
 
 .img-post {
   margin: auto;
-  border-radius: 10px;
+  border-radius: 20px;
   width: 250px; /* Adjust as needed */
   height: 240px; /* Adjust as needed */
   object-fit: cover;

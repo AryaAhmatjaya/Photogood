@@ -12,6 +12,7 @@ import gambar4 from "../assets/images/winter-8445565_1280.jpg";
 import { useRouter } from "next/navigation";
 import { RenderMasonryGif } from "../components/RenderMasonryGif";
 import client from "../utils/router";
+import { LoadingSpinnerHome } from "../components/LoadingSpinnerHome";
 
 export default function Homepage() {
   // State Fetch Main Data
@@ -21,7 +22,7 @@ export default function Homepage() {
   const [photo, setPhoto] = useState([]);
 
   const [selectedCategory, setSelectedCategory] = useState("gif");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async (category) => {
     try {
@@ -118,7 +119,7 @@ export default function Homepage() {
             marginBottom: 32,
           }}
         >
-          <h2>Loading...</h2>
+          <LoadingSpinnerHome />
         </div>
       ) : (
         <>

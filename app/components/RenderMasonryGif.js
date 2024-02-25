@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export const RenderMasonryGif = ({ gif }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const getRandomHeight = () => {
     return Math.floor(Math.random() * 120 + 375);
   };
@@ -9,7 +21,15 @@ export const RenderMasonryGif = ({ gif }) => {
   return (
     <>
       <div>
-        {gif?.length > 0 ? (
+        {loading ? (
+          <div className="container-gambar">
+            {[...Array(gif?.length)].map((_, index) => (
+              <div className="box" key={index}>
+                <Skeleton height={getRandomHeight()} />
+              </div>
+            ))}
+          </div>
+        ) : gif?.length > 0 ? (
           <div className="container-gambar">
             {gif.map((foto, index) => (
               <div className="box" key={index}>

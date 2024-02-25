@@ -761,6 +761,29 @@ label.btn {
   justify-content: center;
 }
 
+.lds-ring-home {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 10px;
+}
+
+.lds-ring-home div {
+  box-sizing: border-box;
+  display: block;
+  width: 85px;
+  height: 85px;
+  margin: 8px;
+  border: 8px solid #0D73D3;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #0D73D3 transparent transparent transparent;
+}
+
+.lds-ring-home div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
 
 .lds-ring {
   display: flex;

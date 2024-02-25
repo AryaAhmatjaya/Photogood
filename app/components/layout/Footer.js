@@ -11,22 +11,16 @@ export const Footer = () => {
   return (
     <main>
       <footer style={{ backgroundColor: "#F5F5F5", overflow: "hidden" }}>
-        {/* <!-- Grid container --> */}
-        {/* <!-- Section: Links --> */}
         <section class="mt-5">
-          {/* <!-- Grid row--> */}
           <div class="row text-center d-flex justify-content-center ">
-            {/* <!-- Grid column --> */}
             <div class="col-md-2">
               <h6 class="text-uppercase fw-bold">
-                <a href="#!" class="text-black">
+                <a href="/homepage" class="text-black">
                   Beranda
                 </a>
               </h6>
             </div>
-            {/* <!-- Grid column --> */}
 
-            {/* <!-- Grid column --> */}
             <div class="col-md-2">
               <h6 class="text-uppercase fw-bold">
                 <a href="#!" class="text-black">
@@ -34,19 +28,15 @@ export const Footer = () => {
                 </a>
               </h6>
             </div>
-            {/* <!-- Grid column --> */}
 
-            {/* <!-- Grid column --> */}
             <div class="col-md-2">
               <h6 class="text-uppercase fw-bold">
-                <a href="#!" class="text-black">
+                <a href="/upload" class="text-black">
                   Upload
                 </a>
               </h6>
             </div>
-            {/* <!-- Grid column --> */}
 
-            {/* <!-- Grid column --> */}
             <div class="col-md-2">
               <h6 class="text-uppercase fw-bold">
                 <a href="#!" class="text-black">
@@ -54,9 +44,7 @@ export const Footer = () => {
                 </a>
               </h6>
             </div>
-            {/* <!-- Grid column --> */}
 
-            {/* <!-- Grid column --> */}
             <div class="col-md-2">
               <h6 class="text-uppercase fw-bold">
                 <a href="#!" class="text-black">
@@ -64,15 +52,11 @@ export const Footer = () => {
                 </a>
               </h6>
             </div>
-            {/* <!-- Grid column --> */}
           </div>
-          {/* <!-- Grid row--> */}
         </section>
-        {/* <!-- Section: Links --> */}
 
         <hr class="my-5" />
 
-        {/* <!-- Section: Text --> */}
         <section class="mb-5">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-8">

@@ -1,4 +1,5 @@
 import { Poppins } from "next/font/google";
+import logo from "../app/assets/images/roedi.jpg";
 import "./globals.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
@@ -17,7 +18,6 @@ export default function RootLayout({ children }) {
             href={"/images/favicon.ico"}
             type="image/x-icon"
           />
-          {/* Icon Website */}
         </head>
         <body className={poppins.className}>{children}</body>
       </html>

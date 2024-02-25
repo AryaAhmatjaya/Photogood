@@ -101,7 +101,7 @@ export const Navbar = () => {
                     Beranda
                   </a>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <a
                     className="nav-link"
                     href="../../register"
@@ -110,7 +110,7 @@ export const Navbar = () => {
                   >
                     Galeri
                   </a>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <a
                     className="nav-link"

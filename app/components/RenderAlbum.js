@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import placeholderImage from "../assets/images/placeholder-image-3.png";
 import Link from "next/link";
@@ -22,14 +23,22 @@ export const RenderAlbum = ({ data }) => {
             href={`/details/${item?.album_id}`}
             key={index}
           >
-            <img
-              className="img-post"
-              src={
-                item?.bookmark_fotos[item?.bookmark_fotos?.length - 1]?.foto
-                  .lokasi_file
-              }
-              alt={item?.foto?.judul_foto || "Placeholder"}
-            />
+            {item?.bookmark_fotos.length > 0 ? (
+              <img
+                className="img-post"
+                src={
+                  item?.bookmark_fotos[item?.bookmark_fotos?.length - 1]?.foto
+                    .lokasi_file
+                }
+                alt={item?.foto?.judul_foto || "Placeholder"}
+              />
+            ) : (
+              <Image
+                src={placeholderImage}
+                alt="foto profil user"
+                className="img-post"
+              ></Image>
+            )}
             <h4
               className="mt-3"
               style={{

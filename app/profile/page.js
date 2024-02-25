@@ -32,6 +32,7 @@ export default function Home() {
       const response = await client.get(`v1/show-user-post`);
       console.log("upload user post  : ", response?.data);
       setPost(response?.data);
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -42,6 +43,7 @@ export default function Home() {
       const response = await client.get(`v2/show-all-bookmark`);
       console.log("upload user bookmark  : ", response?.data);
       setSaved(response?.data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -51,6 +53,7 @@ export default function Home() {
     try {
       const response = await client.get(`v2/show-album`);
       setAlbum(response?.data);
+      setLoading(false);
       setLoading(false);
     } catch (error) {
       console.log(error, "Error Album");

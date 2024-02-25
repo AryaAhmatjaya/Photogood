@@ -4,19 +4,31 @@ import React, { useState, useEffect } from "react";
 import placeholderImage from "../assets/images/placeholder-image-3.png";
 import Link from "next/link";
 import client from "../utils/router";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export const RenderAlbum = ({ data }) => {
   console.log(data);
+  const [loading, setLoading] = useState(true);
 
-  const formatDate = (createdAt) => {
-    const date = new Date(createdAt);
-    const options = { day: "numeric", month: "long", year: "numeric" };
-    return date.toLocaleDateString("id-ID", options);
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="img-row">
-      {data && data.length > 0 ? (
+      {loading ? (
+        [...Array(data?.length)].map((_, index) => (
+          <div className="img-daftar" key={index}>
+            <Skeleton height={200} width={200} />
+            <Skeleton count={4} />
+          </div>
+        ))
+      ) : data && data.length > 0 ? (
         data.map((item, index) => (
           <Link
             className="img-daftar"

@@ -12,9 +12,39 @@ import gambar3 from "../../assets/images/ladybug-8491654_1280.jpg";
 import gambar4 from "../../assets/images/winter-8445565_1280.jpg";
 import placeholderImage from "../../assets/images/placeholder-image-3.png";
 import client from "../../utils/router";
-
+import { useRouter } from "next/navigation";
+import { Modal, Button } from "react-bootstrap";
 
 export default function Home({ params: { slug } }) {
+  const [showFloatingHeart, setShowFloatingHeart] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
+  const router = useRouter();
+  const [showModal, setShowModal] = useState(false);
+  const [showAlbumModal, setShowAlbumModal] = useState(false);
+
+  const [album, setAlbum] = useState([]);
+  const [selectedAlbum, setSelectedAlbum] = useState(null);
+
+  const handleCheckboxChange = (albumID) => {
+    setSelectedAlbum(albumID);
+  };
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const openAlbumModal = () => {
+    setShowAlbumModal(true);
+  };
+
+  const closeAlbumModal = () => {
+    setShowAlbumModal(false);
+  };
+
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(false);
   const [gifData, setGifData] = useState({});
@@ -101,7 +131,7 @@ export default function Home({ params: { slug } }) {
     if (gifData?.comment?.length > displayedComments) {
       return (
         <button
-          className="button-comment fw-bold text-primary mt-4 text-center w-50"
+          className="button-comment fw-bold  mt-4 text-center w-50"
           onClick={showMoreComments}
         >
           Show More
@@ -110,7 +140,7 @@ export default function Home({ params: { slug } }) {
     } else if (displayedComments > 5) {
       return (
         <button
-          className="button-comment fw-bold text-primary mt-4 text-center w-50"
+          className="button-comment fw-bold  mt-4 text-center w-50"
           onClick={showLessComments}
         >
           Show Less
@@ -185,19 +215,165 @@ export default function Home({ params: { slug } }) {
     }
   };
 
-  // if (loading) {
-  //   return <h1>Loading...</h1>;
-  // }
+  const fetchMemberAlbum = async () => {
+    try {
+      const response = await client.get(`v2/show-album`);
+      setAlbum(response?.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error, "Error Album");
+    }
+  };
 
+  const storeMemberBookmark = async () => {
+    try {
+      const payload = {
+        foto_id: String(foto_id),
+        album_id: String(selectedAlbum),
+        user_id: String(userData?.user_id),
+      };
+      const response = await client.post(`v2/store-bookmark`, payload);
+      console.log(payload, "PAYLOAD ON MEMBER ALBUM RAWWRR");
+      console.log(response?.data, "RESPONSE STORE MEMBER ALBUM RAWWWRR");
+      alert("Success!", "Berhasil menambahkan foto ke album!");
+    } catch (error) {
+      console.error(error);
+      alert("An error occured!", `${error?.response?.data.message}`);
+    }
+  };
+
+  const copyToClipboard = () => {
+    const url = window.location.origin + window.location.pathname;
+    navigator.clipboard.writeText(url);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+  };
+  const downloadImage = async (url) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const urlObject = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = urlObject;
+      a.download = "image.jpg";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      // Hapus URL objek setelah proses unduhan selesai
+      window.URL.revokeObjectURL(urlObject);
+    } catch (error) {
+      console.error("Error downloading image:", error);
+    }
+  };
+
+  const storeUserLike = async () => {
+    try {
+      const payload = {
+        user_id: String(userData?.user_id),
+        foto_id: String(foto_id),
+      };
+      const response = await client.post(`v1/store-guest-like`, payload);
+      console.log(response?.data, "LIKE RESPONSE");
+      if (response?.status === 200) {
+        fetchGIFData();
+        setShowFloatingHeart(true);
+        setTimeout(() => {
+          setShowFloatingHeart(false);
+        }, 2000);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchMemberAlbum();
+  }, []);
+
+  console.log(selectedAlbum, "SELECTED ALBUM ID");
   console.log(gifData);
   console.log(userData);
   console.log(commentValue);
   console.log("token state", token);
+  console.log(album);
 
   return (
     <>
       <Navbar />
-
+      <Modal show={showModal} onHide={closeModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Simpan Ke Album</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div>
+            <div className="album-container">
+              {album?.length > 0 ? (
+                album.map((album, index) => (
+                  <div className="album-card" key={index}>
+                    <div className="album-wrap">
+                      <div className="album-image">
+                        {album?.bookmark_fotos.length > 0 ? (
+                          <img
+                            className="album-image-preview"
+                            src={
+                              album?.bookmark_fotos[
+                                album?.bookmark_fotos?.length - 1
+                              ]?.foto.lokasi_file
+                            }
+                            alt={album?.foto?.judul_foto || "Placeholder"}
+                          />
+                        ) : (
+                          <Image
+                            src={placeholderImage}
+                            className="album-image-preview"
+                          />
+                        )}
+                      </div>
+                      <div className="album-wrapper">
+                        <div className="album-title">{album?.nama_album}</div>
+                        <div className="album-subtitle">
+                          {album?.deskripsi_album}
+                        </div>
+                      </div>
+                    </div>
+                    <input
+                      type="checkbox"
+                      value={album.album_id}
+                      onChange={() => handleCheckboxChange(album.album_id)}
+                      checked={selectedAlbum === album.album_id}
+                      className="album-checkbox"
+                    />
+                  </div>
+                ))
+              ) : (
+                <div className="album-create">
+                  <h5 className="text-center">
+                    Anda belum memiliki album, Buat album untuk memulai!
+                  </h5>
+                  <button
+                    className="btn btn-md btn-primary mb-4"
+                    onClick={() => router.push("/profile")}
+                  >
+                    Buat Album
+                  </button>
+                </div>
+              )}
+            </div>
+            {album?.length > 0 && (
+              <button
+                className="btn btn-md btn-primary w-100"
+                onClick={storeMemberBookmark}
+              >
+                Simpan
+              </button>
+            )}
+          </div>
+        </Modal.Body>
+      </Modal>
       <div className="container-details">
         <div className="row">
           <div className="col-7">
@@ -226,30 +402,51 @@ export default function Home({ params: { slug } }) {
                     className="container-button"
                     style={{ marginTop: "20px" }}
                   >
-                    <div className="content">
-                      <span className="heart">
+                    {showFloatingHeart && (
+                      <div className="floating-heart">&#10084;</div>
+                    )}
+
+                    <div className="content" onClick={storeUserLike}>
+                      <span className="heart-icon">
                         <FaHeart />
                       </span>
-                      <span className="like">Suka</span>
+                      <span className="like-text">Suka</span>
                     </div>
-                    <div className="content">
+                    <div
+                      className="content"
+                      onClick={openModal}
+                      disabled={userData?.status != "2"}
+                    >
                       <span className="bookmark">
                         <FaBookmark />
                       </span>
                       <span className="simpan">Simpan</span>
                     </div>
-                    <div className="content">
-                      <span className="share">
-                        <FaShareNodes />
-                      </span>
-                      <span className="bagikan">Bagikan</span>
+                    <div
+                      className={`content ${
+                        isCopied ? "active text-white" : ""
+                      }`}
+                      onClick={copyToClipboard}
+                      disabled={isCopied}
+                    >
+                      {isCopied ? (
+                        "Disalin"
+                      ) : (
+                        <>
+                          <FaShareNodes />
+                          <span className="bagikan">Bagikan</span>
+                        </>
+                      )}
                     </div>
-                    <div className="content">
+                    {/* <div
+                      className="content"
+                      onClick={() => downloadImage(lokasi_file)}
+                    >
                       <span className="download">
                         <MdFileDownload />
                       </span>
                       <span className="unduh">Unduh</span>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="container-detail mt-2">
                     <div className="row" style={{ marginTop: "20px" }}>

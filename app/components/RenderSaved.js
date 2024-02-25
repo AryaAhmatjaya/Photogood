@@ -8,6 +8,15 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 export const RenderSaved = ({ data }) => {
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {

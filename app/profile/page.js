@@ -5,6 +5,7 @@ import { Footer } from "../components/layout/Footer";
 import { RenderPost } from "../components/RenderPost";
 import { RenderAlbum } from "../components/RenderAlbum";
 import { RenderSaved } from "../components/RenderSaved";
+import { LoadingSpinnerHome } from "../components/LoadingSpinnerHome";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import Image from "next/image";
 import placeholderImage from "../assets/images/placeholder-image-3.png";
@@ -54,10 +55,8 @@ export default function Home() {
       const response = await client.get(`v2/show-album`);
       setAlbum(response?.data);
       setLoading(false);
-      setLoading(false);
     } catch (error) {
       console.log(error, "Error Album");
-      setLoading(false);
     }
   };
 
@@ -147,17 +146,29 @@ export default function Home() {
         </div>
         {activeTab === "Post" && (
           <div className="postingan-container">
-            <RenderPost data={post} />
+            {post.length > 0 ? (
+              <RenderPost data={post} />
+            ) : (
+              <LoadingSpinnerHome />
+            )}
           </div>
         )}
         {activeTab === "Saved" && (
           <div className="disimpan-container">
-            <RenderSaved data={saved} />
+            {saved.length > 0 ? (
+              <RenderSaved data={saved} />
+            ) : (
+              <LoadingSpinnerHome />
+            )}
           </div>
         )}
         {activeTab === "Album" && (
           <div className="album-container">
-            <RenderAlbum data={album} />
+            {album.length > 0 ? (
+              <RenderAlbum data={album} fetchData={fetchData} />
+            ) : (
+              <LoadingSpinnerHome />
+            )}
           </div>
         )}
       </div>

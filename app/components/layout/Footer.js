@@ -1,106 +1,39 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGoogle,
-  faFacebookF,
-  faTwitter,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from "react-icons/fa";
+import logo from "../../assets/icon/logo-pg.png"
 
 export const Footer = () => {
   return (
-    <main>
-      <footer style={{ backgroundColor: "#F5F5F5", overflow: "hidden" }}>
-        <section class="mt-5">
-          <div class="row text-center d-flex justify-content-center ">
-            <div class="col-md-2">
-              <h6 class="text-uppercase fw-bold">
-                <a href="/homepage" class="text-black">
-                  Beranda
-                </a>
-              </h6>
-            </div>
-
-            <div class="col-md-2">
-              <h6 class="text-uppercase fw-bold">
-                <a href="#!" class="text-black">
-                  Jelajah
-                </a>
-              </h6>
-            </div>
-
-            <div class="col-md-2">
-              <h6 class="text-uppercase fw-bold">
-                <a href="/upload" class="text-black">
-                  Upload
-                </a>
-              </h6>
-            </div>
-
-            <div class="col-md-2">
-              <h6 class="text-uppercase fw-bold">
-                <a href="#!" class="text-black">
-                  FAQ
-                </a>
-              </h6>
-            </div>
-
-            <div class="col-md-2">
-              <h6 class="text-uppercase fw-bold">
-                <a href="#!" class="text-black">
-                  Kontak
-                </a>
-              </h6>
-            </div>
+    <>
+      <footer className="footer">
+        <div class="d-flex flex-column gap-4 align-items-center container footer-wrapper mt-4" bis_skin_checked="1">
+          <span href="" class="footer-title">Photogood</span>
+          <div class="footer-item-wrapper" bis_skin_checked="1">
+            <ul class="footer-item ps-0 d-flex gap-3" style={{listStyle: 'none'}}>
+              <li>
+                <a class="nav-link" aria-current="page" href="#">Home</a>
+              </li>
+              <li>
+                <a class="nav-link" aria-current="page" href="#">Destination</a>
+              </li>
+              <li>
+                <a class="nav-link" aria-current="page" href="#">Blog</a>
+              </li>
+              <li>
+                <a class="nav-link" aria-current="page" href="#">Languange</a>
+              </li>
+            </ul>
           </div>
-        </section>
-
-        <hr class="my-5" />
-
-        <section class="mb-5">
-          <div class="row d-flex justify-content-center">
-            <div class="col-lg-8">
-              <p className="text-center">
-                Photogood adalah hasil karya kelompok siswa yang ingin
-                menyelesaikan tugas akhir agar lulus. Jadi website ini kami buat
-                dengan pertimbangan guru pengajar kami.
-              </p>
-            </div>
+          <div class="d-flex gap-4 footer-item-social mb-2" bis_skin_checked="1">
+            <a href="#"><FaFacebookSquare className="icon-size" /></a>
+            <a href="#"><FaInstagramSquare className="icon-size" /></a>
+            <a href="#"><FaTwitterSquare className="icon-size" /></a>
           </div>
-        </section>
-        {/* <!-- Section: Text --> */}
-
-        {/* <!-- Section: Social --> */}
-        <section class="text-center mb-5">
-          <a href="" class="text-black me-4">
-            <FontAwesomeIcon icon={faFacebookF} className="icon-size" />
-          </a>
-          <a href="" class="text-black me-4">
-            <FontAwesomeIcon icon={faTwitter} className="icon-size" />
-          </a>
-          <a href="" class="text-black me-4">
-            <FontAwesomeIcon icon={faGoogle} className="icon-size" />{" "}
-          </a>
-          <a href="" class="text-black me-4">
-            <FontAwesomeIcon icon={faInstagram} className="icon-size" />{" "}
-          </a>
-        </section>
-        {/* <!-- Section: Social --> */}
-        {/* <!-- Grid container --> */}
-
-        {/* <!-- Copyright --> */}
-        <div
-          class="text-center p-3"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
-        >
-          © 2024 Copyright:
-          <a class="text-black" href="https://mdbootstrap.com/">
-            Photogood
-          </a>
         </div>
-        {/* <!-- Copyright --> */}
+        <div class="d-flex justify-content-center footer-wrapper-bottom" bis_skin_checked="1">
+          © 2024 Photogood. All Rights Reserved.
+        </div>
       </footer>
-      {/* <!-- Footer --> */}
-    </main>
+    </>
   );
 };

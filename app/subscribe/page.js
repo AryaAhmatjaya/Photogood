@@ -21,122 +21,123 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="row-judul">
-        <h1 className="judul-subs">Berlangganan</h1>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="container col" style={{ display: "flex" }}>
-            <div className="card w-100">
-              <div className="card-body">
-                <div className="row border-bottom text-center mx-2">
-                  <div className="col-5 "></div>
-                  <div className="col">
-                    <span className="text-th">Gratis</span>
+      <section>
+        <div className="container">
+          <div className="row-judul">
+            <h1 className="judul-subs">Berlangganan</h1>
+          </div>
+          <div className="row">
+            <div className="container col" style={{ display: "flex" }}>
+              <div className="card w-100">
+                <div className="card-body">
+                  <div className="row border-bottom text-center mx-2">
+                    <div className="col-5 "></div>
+                    <div className="col">
+                      <span className="text-th">Gratis</span>
+                    </div>
+                    <div className="col">
+                      <span className="text-th">Member</span>
+                    </div>
                   </div>
-                  <div className="col">
-                    <span className="text-th">Member</span>
+                  <div className="row mx-2">
+                    <div className="col-5 my-3">Maksimal download gambar</div>
+                    <div className="col text-center my-3">
+                      <span>3</span>
+                    </div>
+                    <div className="col text-center my-3">
+                      <span>Tak terbatas</span>
+                    </div>
                   </div>
-                </div>
-                <div className="row mx-2">
-                  <div className="col-5 my-3">Maksimal download gambar</div>
-                  <div className="col text-center my-3">
-                    <span>3</span>
+                  <div className="row mx-2">
+                    <div className="col-5 my-3">Maksimal unggah gambar</div>
+                    <div className="col text-center my-3">
+                      <span>3</span>
+                    </div>
+                    <div className="col text-center my-3">
+                      <span>Tak terbatas</span>
+                    </div>
                   </div>
-                  <div className="col text-center my-3">
-                    <span>Tak terbatas</span>
+                  <div className="row mx-2">
+                    <div className="col-5 my-3">Penjelajahan bebas iklan</div>
+                    <div className="col text-center my-3">
+                      <span>
+                        <FaRegCircleCheck className="icon-subscribe-kecil" />
+                      </span>
+                    </div>
+                    <div className="col text-center my-3">
+                      <span>
+                        <FaRegCircleXmark className="icon-subscribe-kecil" />
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="row mx-2">
-                  <div className="col-5 my-3">Maksimal unggah gambar</div>
-                  <div className="col text-center my-3">
-                    <span>3</span>
-                  </div>
-                  <div className="col text-center my-3">
-                    <span>Tak terbatas</span>
-                  </div>
-                </div>
-                <div className="row mx-2">
-                  <div className="col-5 my-3">Penjelajahan bebas iklan</div>
-                  <div className="col text-center my-3">
-                    <span>
-                      <FaRegCircleCheck className="icon-subscribe-kecil" />
-                    </span>
-                  </div>
-                  <div className="col text-center my-3">
-                    <span>
-                      <FaRegCircleXmark className="icon-subscribe-kecil" />
-                    </span>
-                  </div>
-                </div>
-                <div className="row mx-2">
-                  <div className="col-5 my-3">Kualitas download gambar HD</div>
-                  <div className="col text-center my-3">
-                    <span>
-                      <FaRegCircleCheck className="icon-subscribe-kecil" />
-                    </span>
-                  </div>
-                  <div className="col text-center my-3">
-                    <span>
-                      <FaRegCircleXmark className="icon-subscribe-kecil" />
-                    </span>
+                  <div className="row mx-2">
+                    <div className="col-5 my-3">Kualitas download gambar HD</div>
+                    <div className="col text-center my-3">
+                      <span>
+                        <FaRegCircleCheck className="icon-subscribe-kecil" />
+                      </span>
+                    </div>
+                    <div className="col text-center my-3">
+                      <span>
+                        <FaRegCircleXmark className="icon-subscribe-kecil" />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col">
-            <div className="container">
-              <div className="row">
-                <div className="card">
-                  <div className="card-title my-3 mx-3">Penawaran Terbaik</div>
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col">
-                        <div className="row">
-                          <span className="judul-text-subscribe">1 Tahun</span>
+            <div className="col">
+              <div className="container">
+                <div className="row">
+                  <div className="card">
+                    <div className="card-title my-3 mx-3">Penawaran Terbaik</div>
+                    <div className="card-body">
+                      <div className="row">
+                        <div className="col">
+                          <div className="row">
+                            <span className="judul-text-subscribe">1 Tahun</span>
+                          </div>
+                          <div
+                            className="col d-flex"
+                            style={{ alignItems: "center" }}
+                          >
+                            <span className="harga-text-subscribe">
+                              Rp. 30.000,00
+                            </span>
+                            <span className="bulan-text-subscribe">/Bulan</span>
+                          </div>
                         </div>
                         <div
-                          className="col d-flex"
-                          style={{ alignItems: "center" }}
+                          className="col"
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                          }}
                         >
-                          <span className="harga-text-subscribe">
-                            Rp. 30.000,00
-                          </span>
-                          <span className="bulan-text-subscribe">/Bulan</span>
+                          <div className="container-button"> 
+                            <button className="btn btn-primary" type="button">
+                              Berlangganan
+                            </button>
+                          </div>
                         </div>
                       </div>
-                      <div
-                        className="col"
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <div className="container-button">
-                          <button className="btn btn-secondary" type="button">
-                            Berlangganan
-                          </button>
-                        </div>
+                      <div className="row">
+                        <span className="jumlah-text-subscribe">
+                          1 Tahun * RP. 360.000,00
+                        </span>
                       </div>
-                    </div>
-                    <div className="row">
-                      <span className="jumlah-text-subscribe">
-                        1 Tahun * RP. 360.000,00
-                      </span>
-                    </div>
-                    <div className="row">
-                      <span className="text-subscribe-pajak">
-                        *dapat dikenakan biaya tambahan sesuai pajak masing -
-                        masing daerah
-                      </span>
+                      <div className="row">
+                        <span className="text-subscribe-pajak">
+                          *dapat dikenakan biaya tambahan sesuai pajak masing -
+                          masing daerah
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {/* <div className="container">
+              {/* <div className="container">
                             <div className="row">
                                 <div className="card">
                                     <div className="card-body">
@@ -164,9 +165,10 @@ export default function Home() {
                                 </div>
                             </div>
                         </div> */}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
       <div className="row" style={{ marginTop: "50px" }}>
         <h2 className="sub-judul-subs">
           Upgrade akun anda sekarang dan nikmati keuntungan seperti

@@ -11,16 +11,16 @@ export const Footer = () => {
           <div class="footer-item-wrapper" bis_skin_checked="1">
             <ul class="footer-item ps-0 d-flex gap-3" style={{listStyle: 'none'}}>
               <li>
-                <a class="nav-link" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="./homepage">Beranda</a>
               </li>
               <li>
-                <a class="nav-link" aria-current="page" href="#">Destination</a>
+                <a class="nav-link" aria-current="page" href="./subscribe">Subscribe</a>
               </li>
               <li>
-                <a class="nav-link" aria-current="page" href="#">Blog</a>
+                <a class="nav-link" aria-current="page" href="./upload">Upload</a>
               </li>
               <li>
-                <a class="nav-link" aria-current="page" href="#">Languange</a>
+                <a class="nav-link" aria-current="page" href="#">Profil</a>
               </li>
             </ul>
           </div>

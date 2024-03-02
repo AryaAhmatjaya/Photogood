@@ -2,29 +2,34 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import './../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { UserLayout } from "../components/layout/UserLayout/page";
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
-import { MdAddPhotoAlternate } from "react-icons/md";
+import { MdAddPhotoAlternate, MdWorkspacesOutline } from "react-icons/md";
 import gambar1 from "../assets/images/bear-8364583_1280.png";
 import gambar2 from "../assets/images/boat-8515980_1280.jpg";
 import gambar3 from "../assets/images/ladybug-8491654_1280.jpg";
 import gambar4 from "../assets/images/winter-8445565_1280.jpg";
 import { FaRegCircleXmark, FaRegCircleCheck } from "react-icons/fa6";
-import {
-  HiDocumentCheck,
-  HiMiniBanknotes,
-  HiCursorArrowRays,
-} from "react-icons/hi2";
+import { MdOutlineWorkspacePremium } from "react-icons/md";
+import { PiCursorClick } from "react-icons/pi";
+import { HiOutlineDocumentCheck } from "react-icons/hi2";
+import { RiVipCrownLine } from "react-icons/ri";
+import MyAccordion from "../components/accordion";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <section>
+      <section style={{
+        backgroundColor: '#f7f7f7',
+        paddingTop: '15px',
+        paddingBottom: '55px'
+      }}>
         <div className="container">
           <div className="row-judul">
-            <h1 className="judul-subs">Berlangganan</h1>
+            <h2 className="judul-subs">Berlangganan</h2>
           </div>
           <div className="row">
             <div className="container col" style={{ display: "flex" }}>
@@ -36,13 +41,13 @@ export default function Home() {
                       <span className="text-th">Gratis</span>
                     </div>
                     <div className="col">
-                      <span className="text-th">Member</span>
+                      <span className="text-th" style={{color: '#EA7E11'}}><RiVipCrownLine style={{marginRight: '3px', paddingBottom: '2px'}}/>Member</span>
                     </div>
                   </div>
                   <div className="row mx-2">
                     <div className="col-5 my-3">Maksimal download gambar</div>
                     <div className="col text-center my-3">
-                      <span>3</span>
+                      <span>2</span>
                     </div>
                     <div className="col text-center my-3">
                       <span>Tak terbatas</span>
@@ -51,7 +56,7 @@ export default function Home() {
                   <div className="row mx-2">
                     <div className="col-5 my-3">Maksimal unggah gambar</div>
                     <div className="col text-center my-3">
-                      <span>3</span>
+                      <span>2</span>
                     </div>
                     <div className="col text-center my-3">
                       <span>Tak terbatas</span>
@@ -86,20 +91,20 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="col">
+            <div className="col" style={{
+              display: 'flex',
+              alignItems: 'center'
+            }}>
               <div className="container">
                 <div className="row">
                   <div className="card">
-                    <div className="card-title my-3 mx-3">Penawaran Terbaik</div>
+                    <div className="card-title my-3 mx-3"><b>Penawaran Terbaik</b></div>
                     <div className="card-body">
                       <div className="row">
                         <div className="col">
-                          <div className="row">
-                            <span className="judul-text-subscribe">1 Tahun</span>
-                          </div>
                           <div
                             className="col d-flex"
-                            style={{ alignItems: "center" }}
+                            style={{ alignItems: "center", paddingBottom: '15px', marginBottom: '10px'}}
                           >
                             <span className="harga-text-subscribe">
                               Rp. 30.000,00
@@ -115,8 +120,8 @@ export default function Home() {
                             justifyContent: "center",
                           }}
                         >
-                          <div className="container-button"> 
-                            <button className="btn btn-primary" type="button">
+                          <div className="container-button">
+                            <button className="btn btn-primary" type="button" style={{ marginBottom: '25px'}}>
                               Berlangganan
                             </button>
                           </div>
@@ -192,7 +197,7 @@ export default function Home() {
               style={{ display: "flex", flexDirection: "column" }}
             >
               <div className="icon-detail-subs">
-                <HiDocumentCheck className="iki-icon-telu" />
+                <HiOutlineDocumentCheck className="iki-icon-telu" />
               </div>
             </div>
             <div className="container-text">
@@ -218,7 +223,7 @@ export default function Home() {
               style={{ display: "flex", flexDirection: "column" }}
             >
               <div className="icon-detail-subs">
-                <HiMiniBanknotes className="iki-icon-telu" />
+                <MdOutlineWorkspacePremium className="iki-icon-telu" />
               </div>
             </div>
             <div className="container-text">
@@ -243,7 +248,7 @@ export default function Home() {
               style={{ display: "flex", flexDirection: "column" }}
             >
               <div className="icon-detail-subs">
-                <HiCursorArrowRays className="iki-icon-telu" />
+                <PiCursorClick className="iki-icon-telu" />
               </div>
             </div>
             <div className="container-text">
@@ -258,6 +263,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="container my-5">
+        <h3 className="title-faq">FAQ</h3>
+        <MyAccordion></MyAccordion>
+      </div>
+      
       <Footer />
     </>
   );

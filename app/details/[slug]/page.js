@@ -365,7 +365,7 @@ export default function Home({ params: { slug } }) {
             </div>
             {album?.length > 0 && (
               <button
-                className="btn btn-md btn-primary w-100"
+                className="btn btn-md btn-primary w-100 text-white"
                 onClick={storeMemberBookmark}
               >
                 Simpan
@@ -451,7 +451,7 @@ export default function Home({ params: { slug } }) {
                   <div className="container-detail mt-2">
                     <div className="row" style={{ marginTop: "20px" }}>
                       <div className="col-8">
-                        <span className="text-detail-kiri">Download</span>
+                        {/* <span className="text-detail-kiri">Download</span> */}
                         <span className="text-detail-kiri">Suka</span>
                         <span className="text-detail-kiri">Komentar</span>
                         <span className="text-detail-kiri">Tipe Media</span>
@@ -460,9 +460,9 @@ export default function Home({ params: { slug } }) {
                         </span>
                       </div>
                       <div className="col">
-                        <span className="text-detail-kanan">
+                        {/* <span className="text-detail-kanan">
                           {download?.length}
-                        </span>
+                        </span> */}
                         <span className="text-detail-kanan">
                           {like?.length}
                         </span>

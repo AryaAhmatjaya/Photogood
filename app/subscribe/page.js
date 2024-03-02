@@ -115,7 +115,7 @@ export default function Home() {
                         }}
                       >
                         <div className="container-button">
-                          <button className="btn btn-secondary" type="button">
+                          <button className="btn btn-primary" type="button">
                             Berlangganan
                           </button>
                         </div>

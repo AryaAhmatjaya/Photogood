@@ -7,7 +7,7 @@ import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
-
+import photogood from "../assets/icon/logo-pg.png";
 import { useRouter } from "next/navigation";
 import client from "../utils/router";
 
@@ -63,7 +63,7 @@ export default function Home() {
                   <h1 className="my-2 display-3 fw-bold ls-tight ">
                     <span className="text-white">Temukan Gambar Dari</span>
                     <br />
-                    <span className="text-primary">Seluruh Dunia</span>
+                    <span className="text-success">Seluruh Dunia</span>
                   </h1>
                   <p style={{ color: "white" }}>
                     Photogood adalah hasil karya kelompok siswa yang ingin
@@ -74,27 +74,31 @@ export default function Home() {
 
                 <div className="col-lg-6 mb-5 mb-lg-0">
                   <div className="card">
-                    <div className="card-body py-5 px-md-5">
+                    <div className="logo-login">
+                    <Image src={photogood} className="login-logo"></Image>
+                    </div>
+                    <div className="card-body py-1 px-md-5">
                       <form
                         className="d-flex flex-column"
                         onSubmit={handleLogin}
                       >
                         {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
+
                         <div className="row">
                           <div className="col-md-12 mb-4">
                             <div className="form-outline">
-                              <input
-                                type="text"
-                                id="form3Example1"
-                                className="form-control"
-                                onChange={(e) => setUsername(e.target.value)}
-                              />
                               <label
                                 className="form-label"
                                 htmlFor="form3Example1"
                               >
                                 Username
                               </label>
+                              <input
+                                type="text"
+                                id="form3Example1"
+                                className="form-control"
+                                onChange={(e) => setUsername(e.target.value)}
+                              />
                             </div>
                           </div>
                           {/* <div className="col-md-6 mb-4">
@@ -116,15 +120,15 @@ export default function Home() {
 
                         {/* <!-- Password input --> */}
                         <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="form3Example4">
+                            Password
+                          </label>
                           <input
                             type="password"
                             id="form3Example4"
                             className="form-control"
                             onChange={(e) => setPassword(e.target.value)}
                           />
-                          <label className="form-label" htmlFor="form3Example4">
-                            Password
-                          </label>
                         </div>
 
                         {/* <!-- Submit button --> */}
@@ -145,29 +149,12 @@ export default function Home() {
                         <div className="text-center mt-4">
                           <p>
                             <a className="nav-link" href="../../register">
-                              <u>Register</u>
+                              Belum punya akun?{" "}
+                              <b>
+                                <u className="Log"> Register</u>
+                              </b>
                             </a>
-                            Atau daftar melalui
                           </p>
-                          <button
-                            type="button"
-                            className="btn btn-link btn-floating mx-1"
-                          >
-                            <FontAwesomeIcon
-                              icon={faFacebook}
-                              className="icon-size"
-                            />
-                          </button>
-
-                          <button
-                            type="button"
-                            className="btn btn-link btn-floating mx-1"
-                          >
-                            <FontAwesomeIcon
-                              icon={faGoogle}
-                              className="icon-size"
-                            />
-                          </button>
                         </div>
                       </form>
                     </div>

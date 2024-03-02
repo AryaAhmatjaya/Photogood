@@ -1,5 +1,7 @@
 "use client";
+import Image from "next/image";
 import React, { useState, useEffect, use } from "react";
+import photogood from "../assets/icon/logo-pg.png";
 import { Footer } from "../components/layout/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
@@ -61,7 +63,7 @@ export default function Home() {
                 <h1 className="my-2 display-3 fw-bold ls-tight ">
                   <span className="text-white">Temukan Gambar Dari</span>
                   <br />
-                  <span className="text-primary">Seluruh Dunia</span>
+                  <span className="text-success">Seluruh Dunia</span>
                 </h1>
                 <p style={{ color: "white" }}>
                   Photogood adalah hasil karya kelompok siswa yang ingin
@@ -72,7 +74,10 @@ export default function Home() {
 
               <div className="col-lg-6 mb-5 mb-lg-0">
                 <div className="card">
-                  <div className="card-body py-5 px-md-5">
+                <div className="logo-login">
+                    <Image src={photogood} className="login-logo"></Image>
+                    </div>
+                  <div className="card-body py-3 px-md-5">
                     <form
                       className="d-flex flex-column"
                       onSubmit={handleRegister}
@@ -80,60 +85,64 @@ export default function Home() {
                       <div className="row">
                         <div className="col-md-6 mb-4">
                           <div className="form-outline">
+                             <label
+                              className="form-label"
+                              htmlFor="form3Example1"
+                            >
+                              Username
+                            </label>
                             <input
                               type="text"
                               id="form3Example1"
                               className="form-control"
                               onChange={(e) => setUsername(e.target.value)}
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example1"
-                            >
-                              Username
-                            </label>
+                           
                           </div>
                         </div>
                         <div className="col-md-6 mb-4">
-                          <div className="form-outline">
+                          <div className="form-outline"> 
+                          <label
+                              className="form-label"
+                              htmlFor="form3Example2"
+                            >
+                              Email
+                            </label>
                             <input
                               type="email"
                               id="form3Example2"
                               className="form-control"
                               onChange={(e) => setEmail(e.target.value)}
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example2"
-                            >
-                              Email
-                            </label>
+                           
                           </div>
                         </div>
                       </div>
 
                       <div className="form-outline mb-4">
+                        <label className="form-label" htmlFor="form3Example3">
+                          Nama Lengkap
+                        </label>
                         <input
                           type="text"
                           id="form3Example3"
                           className="form-control"
                           onChange={(e) => setNamaLengkap(e.target.value)}
                         />
-                        <label className="form-label" htmlFor="form3Example3">
-                          Nama Lengkap
-                        </label>
+                        
                       </div>
 
                       <div className="form-outline mb-4">
+                        <label className="form-label" htmlFor="form3Example4">
+                          Password
+                        </label>
                         <input
                           type="password"
                           id="form3Example4"
                           className="form-control"
                           onChange={(e) => setPassword(e.target.value)}
                         />
-                        <label className="form-label" htmlFor="form3Example4">
-                          Password
-                        </label>
+                        
                       </div>
 
                       <div
@@ -151,28 +160,9 @@ export default function Home() {
 
                       <div className="text-center mt-4">
                         <a className="nav-link" href="../../login">
-                          Sudah punya akun? <u>Silahkan Login</u>
+                          Sudah punya akun? <b><u className="Log"> Login</u></b>
                         </a>
-                        <p>Atau daftar melalui</p>
-                        <button
-                          type="button"
-                          className="btn btn-link btn-floating mx-1"
-                        >
-                          <FontAwesomeIcon
-                            icon={faFacebook}
-                            className="icon-size"
-                          />
-                        </button>
-
-                        <button
-                          type="button"
-                          className="btn btn-link btn-floating mx-1"
-                        >
-                          <FontAwesomeIcon
-                            icon={faGoogle}
-                            className="icon-size"
-                          />
-                        </button>
+                        
                       </div>
                     </form>
                   </div>

@@ -38,7 +38,7 @@
   border-radius: 50px;
   height: 40px;
   width: 150px;
-  background-color: #0b60b0;
+  background-color: #A9329D;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -70,4 +70,52 @@
   width: 250px; /* Adjust as needed */
   height: 240px; /* Adjust as needed */
   object-fit: cover;
+}
+
+.card-gambar {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.img-title{
+  position: absolute;
+  display: inline;
+  width: 100%;
+  height: 100%;
+  top: 80%;
+  transition: all .5s ease-in;
+  background-image: linear-gradient(to bottom, rgba(5,5,5,0), rgba(5,5,5,1));
+}
+
+.img-title p{
+  text-align: center;
+  justify-content: center;
+  color: white;
+  line-height: 2px;
+  position: relative;
+  top: 70%;
+}
+
+.card-gambar:hover .img-title{
+  top: 0;
+  transition: all .5s ease-out;
+}
+
+.card-gambar img {
+  transition: scale(1) ;
+  transition: all .3s ease-out;
+}
+
+.card-gambar:hover img{
+  transform: scale(1.1);
+  transition: all .3s ease-in;
+}
+
+.reaksi{
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

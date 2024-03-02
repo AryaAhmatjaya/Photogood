@@ -6,7 +6,7 @@ import "@/styles/globals.scss";
 export const NavGuest = () => {
   return (
     <main>
-        {/* <script
+      {/* <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
           integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
           crossorigin="anonymous"
@@ -15,16 +15,51 @@ export const NavGuest = () => {
         <div className="container-navbar">
           {/* Logo di tengah */}
           <div className="mx-0 static">
-            <Image
+          <Image
               className="navbar__pglogo"
-              href="./homepage"
+              href="../guestpage"
               src={sutek}
               alt="logo photogood"
             ></Image>
           </div>
-
+          <div>
+          <ul className="navbar-nav ms-auto">
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="/login"
+                  >
+                    Beranda
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="/login"
+                  >
+                    Chat
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="/login"
+                  >
+                    Upload
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="/login"
+                  >
+                    Subscribe
+                  </a>
+                </li>
+              </ul>
+          </div>
           {/* Search di pojok kanan */}
-          <form className="d-flex">
+          {/* <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -34,7 +69,7 @@ export const NavGuest = () => {
             <button className="btn btn-outline-dark" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
           <div className="navbar-nav">
             <button
               className="navbar-toggler"
@@ -55,16 +90,6 @@ export const NavGuest = () => {
                 <li className="nav-item">
                   <a
                     className="nav-link"
-                    href="/menu"
-                    data-bs-toggle="collapse" // Ubah data-bs-toggle menjadi "collapse"
-                    data-bs-target=".navbar-collapse.show" // Atur target collapse sesuai kebutuhan
-                  >
-                    Beranda
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
                     href="../../register"
                     data-bs-toggle="collapse" // Ubah data-bs-toggle menjadi "collapse"
                     data-bs-target=".navbar-collapse.show" // Atur target collapse sesuai kebutuhan
@@ -73,14 +98,10 @@ export const NavGuest = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="../../login"
-                    data-bs-toggle="collapse" // Ubah data-bs-toggle menjadi "collapse"
-                    data-bs-target=".navbar-collapse.show" // Atur target collapse sesuai kebutuhan
-                  >
+                  {/* <button className="button-masuk" href="../../login" type="submit">
                     Masuk
-                  </a>
+                  </button> */}
+                  <button type="submit" className="btn btn-lg btn-primary" href="../../login">Login</button>
                 </li>
               </ul>
             </div>

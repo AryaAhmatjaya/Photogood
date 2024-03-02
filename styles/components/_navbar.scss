@@ -38,6 +38,30 @@
   align-items: center;
 }
 
+.navbar-nav{
+  display: inline;
+}
+
+.nav-link{
+  font-size: 16px !important;
+  display: inline;
+}
+
+button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
+  cursor: pointer;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+.tombol-login{
+  color: #f9f9f9;
+  font-size: 16px !important;
+  text-decoration: none;
+  margin-bottom: 0;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

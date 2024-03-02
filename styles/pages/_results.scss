@@ -1,0 +1,52 @@
+
+
+.search-results {
+  height: 15%;
+  width: 50%;
+  margin-top:8%;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.container-gambar-results{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 4%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  columns: 5;
+  column-gap: 20px;
+}
+
+.container-gambar-results .box {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.container-gambar-results .box .image {
+  max-width: 100%;
+  width: 400px;
+  border-radius: 15px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.hasil {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 2%; 
+  font-size: 14px;
+  color: #a6a6a6;
+}
+

@@ -4,35 +4,206 @@
   box-sizing: border-box;
   height: auto;
 }
-
+.gambar-beranda {
+  margin-top: 9%;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 480px;
+  justify-content: center;
+}
 .hero-image {
-  position: relative;
-  width: 100%;
-  height: auto;
-  text-align: center;
-  background: url('../../app/assets/images/home.png');
+  justify-content: center;
+  background: url("../../app/assets/images/foto.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 50px;
+  height: 100%;
+  position: relative;
 }
 
 .hero-image::before {
-  content: '';
+  border-radius: 50px;
   position: absolute;
-  left: 0;
+  content: "";
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, 0.35); /* Adjust the transparency as needed */
+  z-index: 1;
 }
 
 .hero-content {
-  position: relative;
-  width: 60%;
+  position: absolute;
+  z-index: 2;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 46%;
+}
+
+.search-beranda {
+  height: auto;
+  width: 55%;
+  margin: auto;
+  background-color: #fdfdfd;
+  position: absolute;
+  padding: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-radius: 15px;
+  z-index: 3;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  top: 439px;
+  left: 22.5%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.search-beranda-label {
+  text-decoration: bold;
+}
+
+.cari {
+  width: 36%;
+  font-size: 17px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.search {
   align-items: center;
-  height: 100vh;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.input-text {
+  border: unset;
+  min-width: 200px;
+  font-size: 17px;
+  margin: 0;
+  font-family: inherit;
+  line-height: inherit;
+  padding-block: 1px;
+  padding-inline: 2px;
+  text-rendering: auto;
+  color: fieldtext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  cursor: text;
+  background-color: field;
+  margin: 0em;
+  padding: 1px 0px;
+  outline: none;
+}
+
+.input-text:focus {
+  border-color: transparent; /* Remove border on focus */
+}
+
+.btn-filter {
+  background: transparent;
+  border: unset;
+  padding: 0;
+  color: var(--secondary-color);
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.btn-filter.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0.5rem;
+  vertical-align: 0em;
+  content: "";
+  border-top: 0.6em solid;
+  border-right: 0.4em solid transparent;
+  border-bottom: 0;
+  border-left: 0.4em solid transparent;
+}
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+.dropdown-toggle {
+  white-space: nowrap;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown::after {
+  box-sizing: border-box;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  inset: 0px auto auto 0px;
+  margin: 0px;
+  transform: translate(0px, 24px);
+  float: left;
+  min-width: 160px;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  min-width: 10rem;
+  padding-x: 0;
+  padding-y: 0.5rem;
+  spacer: 0.125rem;
+  bg: var(--bs-body-bg);
+  item-padding-x: 1rem;
+  item-padding-y: 0.25rem;
+  display: none;
+  min-width: var(--bs-dropdown-min-width);
+  padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
+  font-size: var(--bs-dropdown-font-size);
+  color: var(--bs-dropdown-color);
+  text-align: left;
+  list-style: none;
+  background-color: var(--bs-dropdown-bg);
+  background-clip: padding-box;
+  border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
+  border-radius: var(--bs-dropdown-border-radius);
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .cari {
+    flex: 100%; /* Untuk membuat elemen penuh lebar pada layar kecil */
+  }
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .ini-button {
@@ -43,12 +214,12 @@
   outline: none;
   font-size: 15px;
   text-transform: capitalize;
-  background-color: #0D73D3;
+  background-color: #a9329d;
   color: #fff;
-  box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   border: 2px solid transparent;
   cursor: pointer;
-  transition: all ease .2s;
+  transition: all ease 0.2s;
 }
 
 .ini-button:hover {
@@ -65,45 +236,38 @@
 }
 
 .button-telu {
-  width: auto;
+  width: 10%;
   height: 50px;
   padding-top: 10px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 10px;
-  margin-top: 30px;
+  margin-top: 80px;
   margin-bottom: 20px;
   margin-right: 15px;
   border-radius: 50px;
-  border: 1px #000;
+  border: none;
   outline: none;
-  font-size: 15px;
-  text-transform: capitalize;
+  font-size: 16px;
   background-color: transparent;
   color: #000;
-  border: 2px solid #000;
   cursor: pointer;
-  transition: all ease .2s;
+  transition: all ease 0.2s;
 
   &.active {
-    background: #0D73D3;
-    border-color: #fff;
+    background: rgb(179, 0, 161);
     color: #fff;
   }
-
 }
 
 .button-telu:hover {
-  border-color: #fff;
-  color: #fff;
-  background: #0D73D3;
+  color: primary;
 }
-
 
 .container-gambar {
   width: 90%;
   margin-left: 5%;
-  margin-top: 2%;
+  margin-top: 8%;
   margin-right: 5%;
   margin-bottom: 5%;
   columns: 5;
@@ -127,18 +291,17 @@
   object-position: center;
   cursor: pointer;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  }
-
-.icon-size {
+}
+z .icon-size {
   font-size: 30px;
 }
 
-.edit{
+.edit {
   margin-top: 6%;
   margin-bottom: 5%;
 }
 .upload {
-  &__Unggah{
+  &__Unggah {
     margin-top: 9%;
     justify-content: center;
   }
@@ -161,7 +324,6 @@
     text-align: center;
   }
 
-
   &__upload-container {
     border-radius: 6px;
     padding: 10px;
@@ -169,7 +331,7 @@
 
   &__border-container {
     border: 5px dashed rgba(198, 198, 198, 0.65);
-    border-radius: 4px; 
+    border-radius: 4px;
     padding: 20px;
   }
 
@@ -194,8 +356,6 @@
     border-bottom: 3px dotted rgba(0, 0, 255, 0.85);
   }
 
-  
-
   &__icon-upload {
     margin-top: 50px;
     height: 100px;
@@ -216,7 +376,7 @@
 
   &__upload-button {
     border: none;
-    background-color: #0B60B0;
+    background-color: #a9329d;
     border-radius: 25px;
     padding: 6.5px 20px;
     color: white;
@@ -224,7 +384,7 @@
     cursor: pointer;
     margin-bottom: 7%;
     &:hover {
-      background-color: #0D73D3;
+      background-color: #a9329d;
     }
   }
 
@@ -256,7 +416,7 @@
   }
 
   &__btn-download {
-    background-color: #0B60B0;
+    background-color: #a9329d;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -271,7 +431,7 @@
   }
 
   &__btn-download:hover {
-    background-color: #2A83C9;
+    background-color: #a9329d;
     transform: scale(1.1);
     transition: all 0.5s;
   }
@@ -307,7 +467,7 @@
     margin: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #0B60B0;
+    background-color: #a9329d;
     color: #fff;
     border: none;
     width: 75px;
@@ -317,7 +477,7 @@
   }
 
   &__like-button:hover {
-    background-color: #3498db;
+    background-color: #a9329d;
     /* Hover color */
   }
 
@@ -330,7 +490,7 @@
     margin: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #0B60B0;
+    background-color: #a9329d;
     color: #fff;
     border: none;
     width: 100px;
@@ -353,7 +513,7 @@
     margin: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #0B60B0;
+    background-color: #a9329d;
     color: #fff;
     border: none;
     width: 100px;
@@ -370,7 +530,6 @@
   &__simpan-button.liked {
     background-color: #e74c3c;
   }
-
 
   &__rincian {
     position: absolute;
@@ -407,7 +566,7 @@
     }
 
     &__text-member {
-      color: #ED7E11;
+      color: #ed7e11;
     }
   }
 }
@@ -453,7 +612,7 @@
 }
 
 .content.active {
-  background-color: #4CAF50;
+  background-color: #a9329d;
   border: none;
 }
 
@@ -584,7 +743,7 @@
 
 /* Button styling */
 .send-button {
-  background-color: #4CAF50;
+  background-color: #a9329d;
   color: #fff;
   border: none;
   padding: 6px 32px;
@@ -621,15 +780,13 @@
   margin-left: 5px;
   font-size: 14px;
   color: #656f79;
-
 }
 
 .button-comment {
   border: unset !important;
   background-color: transparent !important;
-  color: #4CAF50 !important;
+  color: #a9329d !important;
 }
-
 
 .card.card-details {
   border-radius: 24px;
@@ -643,7 +800,7 @@
 .btn-default {
   border-color: rgba(24, 28, 33, 0.1);
   background: rgba(0, 0, 0, 0);
-  color: #4E5155;
+  color: #4e5155;
 }
 
 label.btn {
@@ -651,9 +808,9 @@ label.btn {
 }
 
 .btn-outline-primary {
-  border-color: #26B4FF;
+  border-color: #a9329d;
   background: transparent;
-  color: #26B4FF;
+  color: #a9329d;
 }
 
 .btn {
@@ -663,7 +820,6 @@ label.btn {
 .text-light {
   color: #babbbc !important;
 }
-
 
 .card {
   background-clip: padding-box;
@@ -711,18 +867,18 @@ label.btn {
 .jumlah-text-subscribe {
   font-size: 14px;
   font-weight: bolder;
-  color: #7C7A7A;
+  color: #7c7a7a;
 }
 
 .text-subscribe-pajak {
   font-size: 12px;
-  color: #7C7A7A;
+  color: #7c7a7a;
   margin-top: 5px;
 }
 
 .icon-bunder {
   margin-top: 20px;
-  background-color: #D4F0FF;
+  background-color: #d4f0ff;
   width: 85px;
   height: 85px;
   border-radius: 50%;
@@ -734,7 +890,7 @@ label.btn {
   font-size: 45px;
 }
 .iki-icon-telu {
-  color: #1878ED;
+  color: #a9329d;
 }
 .atas-subs {
   font-size: 20px;
@@ -780,16 +936,15 @@ label.btn {
   width: 85px;
   height: 85px;
   margin: 8px;
-  border: 8px solid #0D73D3;
+  border: 8px solid #0d73d3;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #0D73D3 transparent transparent transparent;
+  border-color: #0d73d3 transparent transparent transparent;
 }
 
 .lds-ring-home div:nth-child(1) {
   animation-delay: -0.45s;
 }
-
 
 .lds-ring {
   display: flex;
@@ -805,10 +960,10 @@ label.btn {
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid #0D73D3;
+  border: 8px solid #0d73d3;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #0D73D3 transparent transparent transparent;
+  border-color: #0d73d3 transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
@@ -856,8 +1011,8 @@ label.btn {
 
 .album-wrap {
   display: flex;
-    gap: 12px;
-    align-items: center;
+  gap: 12px;
+  align-items: center;
 }
 
 .album-wrapper {
@@ -888,7 +1043,7 @@ label.btn {
 }
 
 .album-checkbox:checked {
-  background-color: #0D73D3;
+  background-color: #a9329d;
 }
 
 .album-create {
@@ -900,7 +1055,7 @@ label.btn {
 }
 
 .album-button {
-  font-size: 14px !important; 
+  font-size: 14px !important;
   color: white !important;
   max-height: 40px !important;
 }

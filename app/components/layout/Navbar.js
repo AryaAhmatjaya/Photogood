@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import roedi from "../../assets/images/Dropdown.jpg";
-import sutek from "../../assets/icon/logo-pg.png";
 import Image from "next/image";
+import sutek from "../../assets/icon/logo-pg.png";
 import "@/styles/globals.scss";
-import link from "next/link";
 import { NavDropdown } from "react-bootstrap";
 import { useRouter } from "next/navigation";
 
@@ -63,19 +61,43 @@ export const Navbar = () => {
               alt="logo photogood"
             ></Image>
           </div>
-
-          {/* Search di pojok kanan */}
-          <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-dark" type="submit">
-              Search
-            </button>
-          </form>
+          <div>
+          <ul className="navbar-nav ms-auto">
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="/homepage"
+                  >
+                    Beranda
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="/chat"
+                  >
+                    Chat
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="/upload"
+                  >
+                    Upload
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="/subscribe"
+                  >
+                    Subscribe
+                  </a>
+                </li>
+              </ul>
+          </div>
+         
           <div className="navbar-nav">
             <button
               className="navbar-toggler"
@@ -91,36 +113,7 @@ export const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbardrop">
               <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="/homepage"
-                    data-bs-toggle="collapse" // Ubah data-bs-toggle menjadi "collapse"
-                    data-bs-target=".navbar-collapse.show" // Atur target collapse sesuai kebutuhan
-                  >
-                    Beranda
-                  </a>
-                </li>
-                {/* <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="../../register"
-                    data-bs-toggle="collapse" // Ubah data-bs-toggle menjadi "collapse"
-                    data-bs-target=".navbar-collapse.show" // Atur target collapse sesuai kebutuhan
-                  >
-                    Galeri
-                  </a>
-                </li> */}
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="/subscribe"
-                    data-bs-toggle="collapse" // Ubah data-bs-toggle menjadi "collapse"
-                    data-bs-target=".navbar-collapse.show" // Atur target collapse sesuai kebutuhan
-                  >
-                    Subscribe
-                  </a>
-                </li>
+                
               </ul>
               {/* Daftar menu */}
 
@@ -161,62 +154,7 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* <nav className="navbar navbar-expand-lg navbar-light bg-secondary fixed-top">
-        <div className="container">
-          <div className="mx-0 static">
-            <Image
-              className="navbar__pglogo"
-              href="./homepage"
-              src={sutek}
-              alt="logo photogood"
-            ></Image>
-          </div>
-
-          <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-dark" type="submit">
-              Search
-            </button>
-          </form>
-
-          <div className="navbar-nav">
-            <a className="nav-link" href="/menu">
-              Home
-            </a>
-            <a className="nav-link" href="/menu">
-              Galeri
-            </a>
-            <a className="nav-link" href="/menu">
-              Subcribe
-            </a>
-          
-            <NavDropdown
-              title={
-                <Image
-                  src={roedi}
-                  alt="Profile" className="profile-img"
-                ></Image>
-              }
-              id="nav-dropdown"
-              show={dropdownOpen}
-              onClick={toggleDropdown}
-            >
-              <NavDropdown.Item href="./profile">Profil</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#">Album Foto</NavDropdown.Item>
-              <NavDropdown.Item href="#">Chat</NavDropdown.Item>
-              <NavDropdown.Item href="#">Pengaturan</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="../app/page">Keluar</NavDropdown.Item>
-            </NavDropdown>
-          </div>
-        </div>
-      </nav> */}
+      
     </main>
   );
 };

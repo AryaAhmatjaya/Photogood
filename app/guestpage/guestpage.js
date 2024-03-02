@@ -19,7 +19,7 @@ export default function Guestpage() {
       <div className="gambar-beranda">
         <div className="hero-image">
           <div className="hero-content">
-          <h3
+            <h3
               style={{
                 fontSize: "50px",
                 color: "#fff",
@@ -45,14 +45,13 @@ export default function Guestpage() {
                 fontWeight: "normal",
                 color: "#fff",
                 lineHeight: "22px",
-                
               }}
             >
               Photogood adalah hasil karya kelompok siswa yang ingin
               menyelesaikan tugas akhir agar lulus. Jadi website ini kami buat
               dengan pertimbangan guru pengajar kami.
             </p>
-            
+
             {/* <div className="search-beranda">
               <form className="d-flex">
                 <input
@@ -68,30 +67,57 @@ export default function Guestpage() {
             </div> */}
           </div>
           <div className="search-beranda">
-              <div className="cari">
-                <b><label className="search-beranda-label"> Telusuri </label></b>
-                <div className="search">
-                <input className="input-text" id="cari" name="cari" placeholder="Telusuri berbagai Foto"></input>
-
+            <div className="cari">
+              <b>
+                <label className="search-beranda-label"> Telusuri </label>
+              </b>
+              <div className="search">
+                <input
+                  className="input-text"
+                  id="cari"
+                  name="cari"
+                  placeholder="Telusuri berbagai Foto"
+                ></input>
               </div>
-              </div>
-              <div className="cari">
-                <b><label className="search-beranda-label"> Filter </label></b>
-                <div className="dropdown __web-inspector-hide-shortcut__">
-                <button className="btn-filter dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            </div>
+            <div className="cari">
+              <b>
+                <label className="search-beranda-label"> Filter </label>
+              </b>
+              <div className="dropdown __web-inspector-hide-shortcut__">
+                <button
+                  className="btn-filter dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
                   Pilih kategori gambar
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Foto</a></li>
-                  <li><a className="dropdown-item" href="#">GIF</a></li>
-                  <li><a className="dropdown-item" href="#">Fektor</a></li>\
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Foto
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      GIF
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Fektor
+                    </a>
+                  </li>
+                  \
                 </ul>
               </div>
-              
-              </div>
-              <div className="">
-              <button type="submit" className="btn btn-lg btn-primary">Search</button>
-              </div>
+            </div>
+            <div className="">
+              <button type="submit" className="btn btn-lg btn-primary">
+                Search
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -112,10 +138,21 @@ export default function Guestpage() {
             <div class="card-gambar">
               <Image src={gambar1} className="image"></Image>
               <div class="img-title">
-                <p>Judul Foto</p><p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                <p>Judul Foto</p>
+                <p>
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
@@ -128,9 +165,19 @@ export default function Guestpage() {
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
@@ -143,107 +190,119 @@ export default function Guestpage() {
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar3} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar4} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar1} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar3} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div><div className="box">
-          <Link href="/details">
-            <div class="card-gambar">
-              <Image src={gambar2} className="image"></Image>
-              <div class="img-title">
-                <p>Judul Foto</p>
-                <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div><div className="box">
-          <Link href="/details">
-            <div class="card-gambar">
-              <Image src={gambar2} className="image"></Image>
-              <div class="img-title">
-                <p>Judul Foto</p>
-                <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div><div className="box">
-          <Link href="/details">
-            <div class="card-gambar">
-              <Image src={gambar2} className="image"></Image>
-              <div class="img-title">
-                <p>Judul Foto</p>
-                <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
@@ -256,107 +315,269 @@ export default function Guestpage() {
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
+          <Link href="/details">
+            <div class="card-gambar">
+              <Image src={gambar2} className="image"></Image>
+              <div class="img-title">
+                <p>Judul Foto</p>
+                <p>
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
+                </p>
+              </div>
+            </div>
+          </Link>
+        </div>
+        <div className="box">
+          <Link href="/details">
+            <div class="card-gambar">
+              <Image src={gambar2} className="image"></Image>
+              <div class="img-title">
+                <p>Judul Foto</p>
+                <p>
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
+                </p>
+              </div>
+            </div>
+          </Link>
+        </div>
+        <div className="box">
+          <Link href="/details">
+            <div class="card-gambar">
+              <Image src={gambar2} className="image"></Image>
+              <div class="img-title">
+                <p>Judul Foto</p>
+                <p>
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
+                </p>
+              </div>
+            </div>
+          </Link>
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar3} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar4} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar1} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar3} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar2} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar2} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
           </Link>
-        </div><div className="box">
+        </div>
+        <div className="box">
           <Link href="/details">
             <div class="card-gambar">
               <Image src={gambar2} className="image"></Image>
               <div class="img-title">
                 <p>Judul Foto</p>
                 <p>
-                  <span className="heart"><FaHeart /> </span>{" "}100K 
-                  <span className="simpan"><MdFileDownload/></span> 50K{" "}
-                  <span className="share">{" "}<FaShareNodes /></span>{" "}200K{" "}
+                  <span className="heart">
+                    <FaHeart />{" "}
+                  </span>{" "}
+                  100K
+                  <span className="simpan">
+                    <MdFileDownload />
+                  </span>{" "}
+                  50K{" "}
+                  <span className="share">
+                    {" "}
+                    <FaShareNodes />
+                  </span>{" "}
+                  200K{" "}
                 </p>
               </div>
             </div>
@@ -367,6 +588,3 @@ export default function Guestpage() {
     </>
   );
 }
-
-// To create routes, you must create new folder, and in the folder add page.js
-// example : i want to create profile routes, so i must to create profile folder, and inside profile folder add page.js

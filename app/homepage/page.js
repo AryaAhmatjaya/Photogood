@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { RenderMasonryGif } from "../components/RenderMasonryGif";
 import client from "../utils/router";
 import { LoadingSpinnerHome } from "../components/LoadingSpinnerHome";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export default function Homepage() {
   // State Fetch Main Data
@@ -116,7 +117,7 @@ export default function Homepage() {
               <b>
                 <label className="search-beranda-label"> Filter </label>
               </b>
-              <div className="dropdown __web-inspector-hide-shortcut__">
+              {/* <div className="dropdown __web-inspector-hide-shortcut__">
                 <button
                   className="btn-filter dropdown-toggle"
                   type="button"
@@ -143,7 +144,23 @@ export default function Homepage() {
                   </li>
                   \
                 </ul>
-              </div>
+              </div> */}
+              <Dropdown bsPrefix="dropdown custom-dropdown">
+                <Dropdown.Toggle className="custom-toggle">
+                  Pilih kategori gambar
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="custom-menu">
+                  <Dropdown.Item onClick={() => handleCategoryChange("photo")}>
+                    Foto
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => handleCategoryChange("gif")}>
+                    GIF
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => handleCategoryChange("vector")}>
+                    Vektor
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
             <div className="">
               <button type="submit" className="btn btn-lg btn-primary">

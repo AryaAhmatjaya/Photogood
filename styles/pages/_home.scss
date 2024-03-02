@@ -1099,3 +1099,18 @@ label.btn {
     opacity: 0;
   }
 }
+
+.custom-dropdown .custom-toggle {
+  color: #000;
+  border: unset !important;
+  background: transparent;
+  padding: 0 !important;
+}
+
+.custom-dropdown .custom-toggle:hover,
+.custom-dropdown .custom-toggle:focus,
+.custom-dropdown .custom-toggle:active,
+.custom-dropdown .custom-toggle:focus-visible {
+  background: transparent !important;
+  color: #000 !important;
+}

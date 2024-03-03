@@ -31,7 +31,7 @@ export default function Home() {
                 </div>
                 <div className="contain-item d-flex px-3">
                   <MdBookmarkBorder className="icon-size me-3" />
-                  <a href="" className="text-middle pe-5">Album</a>
+                  <a href="/album" className="text-middle pe-5">Album</a>
                 </div>
                 <div className="contain-item d-flex px-3">
                   <MdOutlineUpload  className="icon-size me-3" />

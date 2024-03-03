@@ -933,6 +933,11 @@ label.btn {
   margin-bottom: 12px;
 }
 
+.album-container {
+  width: 100%;
+  max-width: 800px;
+}
+
 .album-image-preview {
   border-radius: 100px;
   object-position: center;
@@ -1014,7 +1019,7 @@ label.btn {
 .floating-heart {
   position: absolute;
   top: 0;
-  left: 25%;
+  left: 20%;
   transform: translateX(-50%);
   font-size: 24px;
   color: red;

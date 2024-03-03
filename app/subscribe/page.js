@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import './../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import "./../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { UserLayout } from "../components/layout/UserLayout/page";
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
@@ -17,16 +17,78 @@ import { PiCursorClick } from "react-icons/pi";
 import { HiOutlineDocumentCheck } from "react-icons/hi2";
 import { RiVipCrownLine } from "react-icons/ri";
 import MyAccordion from "../components/accordion";
+import client from "../utils/router";
 
 export default function Home() {
+  const [userData, setUserData] = useState({});
+
+  const fetchUserDetail = async (tokenLocal) => {
+    try {
+      const response = await client.get(`v1/show-user-detail`);
+      setUserData(response.data);
+    } catch (error) {
+      console.error("Error fetching user detail:", error);
+    }
+  };
+
+  const storeMembership = async () => {
+    try {
+      const payload = {
+        price: 30000,
+        item_name: "Membership",
+        user_id: userData?.user_id,
+      };
+
+      const auth = "SB-Mid-server-jYmiUqM4L6NjnHaJncPQmekt";
+      console.log(auth, "============ AUTH ENV MIDTRANS ===============");
+
+      const response = await client.post(
+        "/v1/store-midtrans-payment",
+        payload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Basic ${auth}`,
+          },
+        }
+      );
+
+      console.log(
+        response,
+        "================ RESPONSE MEMBERSHIP ====================="
+      );
+
+      if (
+        response?.data.payment_info &&
+        response?.data.payment_info.redirect_url
+      ) {
+        const redirectUrl = response?.data.payment_info.redirect_url;
+        window.location.href = redirectUrl;
+      } else {
+        alert("Failed to get redirect URL");
+      }
+    } catch (error) {
+      // console.error(error);
+      alert(`${error?.response?.data?.message || "Unknown error"}`);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserDetail();
+  }, []);
+
+  console.log(userData);
+
   return (
     <>
       <Navbar />
-      <section style={{
-        backgroundColor: '#f7f7f7',
-        paddingTop: '15px',
-        paddingBottom: '55px'
-      }}>
+      <section
+        style={{
+          backgroundColor: "#f7f7f7",
+          paddingTop: "15px",
+          paddingBottom: "55px",
+        }}
+      >
         <div className="container">
           <div className="row-judul">
             <h2 className="judul-subs">Berlangganan</h2>
@@ -41,7 +103,12 @@ export default function Home() {
                       <span className="text-th">Gratis</span>
                     </div>
                     <div className="col">
-                      <span className="text-th" style={{color: '#EA7E11'}}><RiVipCrownLine style={{marginRight: '3px', paddingBottom: '2px'}}/>Member</span>
+                      <span className="text-th" style={{ color: "#EA7E11" }}>
+                        <RiVipCrownLine
+                          style={{ marginRight: "3px", paddingBottom: "2px" }}
+                        />
+                        Member
+                      </span>
                     </div>
                   </div>
                   <div className="row mx-2">
@@ -76,7 +143,9 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="row mx-2">
-                    <div className="col-5 my-3">Kualitas download gambar HD</div>
+                    <div className="col-5 my-3">
+                      Kualitas download gambar HD
+                    </div>
                     <div className="col text-center my-3">
                       <span>
                         <FaRegCircleCheck className="icon-subscribe-kecil" />
@@ -91,20 +160,29 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="col" style={{
-              display: 'flex',
-              alignItems: 'center'
-            }}>
+            <div
+              className="col"
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
               <div className="container">
                 <div className="row">
                   <div className="card">
-                    <div className="card-title my-3 mx-3"><b>Penawaran Terbaik</b></div>
+                    <div className="card-title my-3 mx-3">
+                      <b>Penawaran Terbaik</b>
+                    </div>
                     <div className="card-body">
                       <div className="row">
                         <div className="col">
                           <div
                             className="col d-flex"
-                            style={{ alignItems: "center", paddingBottom: '15px', marginBottom: '10px'}}
+                            style={{
+                              alignItems: "center",
+                              paddingBottom: "15px",
+                              marginBottom: "10px",
+                            }}
                           >
                             <span className="harga-text-subscribe">
                               Rp. 30.000,00
@@ -121,7 +199,12 @@ export default function Home() {
                           }}
                         >
                           <div className="container-button">
-                            <button className="btn btn-primary" type="button" style={{ marginBottom: '25px'}}>
+                            <button
+                              className="btn btn-primary"
+                              type="button"
+                              style={{ marginBottom: "25px" }}
+                              onClick={storeMembership}
+                            >
                               Berlangganan
                             </button>
                           </div>
@@ -267,7 +350,7 @@ export default function Home() {
         <h3 className="title-faq">FAQ</h3>
         <MyAccordion></MyAccordion>
       </div>
-      
+
       <Footer />
     </>
   );

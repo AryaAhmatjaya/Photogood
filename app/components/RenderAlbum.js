@@ -193,7 +193,7 @@ export const RenderAlbum = ({ data, fetchData }) => {
               marginTop: "16px",
             }}
           >
-            User belum menyimpan apapun!
+            User belum memiliki album!
           </h3>
         )}
       </div>

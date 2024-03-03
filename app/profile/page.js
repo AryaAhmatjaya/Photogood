@@ -158,7 +158,9 @@ export default function Home() {
             {saved.length > 0 ? (
               <RenderSaved data={saved} />
             ) : (
-              <LoadingSpinnerHome />
+              <div style={{ marginTop: 20 }}>
+                <h2>User belum menyimpan apapun!</h2>
+              </div>
             )}
           </div>
         )}
@@ -167,7 +169,9 @@ export default function Home() {
             {album.length > 0 ? (
               <RenderAlbum data={album} fetchData={fetchData} />
             ) : (
-              <LoadingSpinnerHome />
+              <>
+                <RenderAlbum data={album} fetchData={fetchData} />
+              </>
             )}
           </div>
         )}

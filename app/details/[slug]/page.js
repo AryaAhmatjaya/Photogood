@@ -251,7 +251,7 @@ export default function Home({ params: { slug } }) {
     }, 2000);
   };
 
-  const downloadImageMember = async (foto_id) => {
+  const downloadImageMember = async (judul_foto, foto_id) => {
     console.log(foto_id);
     try {
       const payload = {
@@ -271,7 +271,7 @@ export default function Home({ params: { slug } }) {
 
       const link = document.createElement("a");
       link.href = url;
-      link.download = `foto.${ext}`;
+      link.download = `${judul_foto}.${ext}`;
       document.body.appendChild(link);
       link.click();
 
@@ -451,7 +451,7 @@ export default function Home({ params: { slug } }) {
                     </div>
                     <div
                       className="content"
-                      onClick={() => downloadImageMember(foto_id)}
+                      onClick={() => downloadImageMember(judul_foto, foto_id)}
                     >
                       <span className="download">
                         <MdFileDownload />

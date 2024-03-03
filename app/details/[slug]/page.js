@@ -250,23 +250,34 @@ export default function Home({ params: { slug } }) {
       setIsCopied(false);
     }, 2000);
   };
-  const downloadImage = async (url) => {
+
+  const downloadImageMember = async (foto_id) => {
+    console.log(foto_id);
     try {
-      const response = await fetch(url);
-      const blob = await response.blob();
-      const urlObject = window.URL.createObjectURL(blob);
+      const payload = {
+        user_id: userData?.user_id,
+      };
+      const response = await client.post(
+        `v2/download-photo/${foto_id}`,
+        payload,
+        { responseType: "blob" }
+      );
+      console.log(response);
 
-      const a = document.createElement("a");
-      a.href = urlObject;
-      a.download = "image.jpg";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      const url = URL.createObjectURL(new Blob([response.data]));
 
-      // Hapus URL objek setelah proses unduhan selesai
-      window.URL.revokeObjectURL(urlObject);
+      const contentType = response.headers["content-type"];
+      const ext = contentType.split("/").pop();
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `foto.${ext}`;
+      document.body.appendChild(link);
+      link.click();
+
+      URL.revokeObjectURL(url);
     } catch (error) {
-      console.error("Error downloading image:", error);
+      console.error(error);
     }
   };
 
@@ -438,15 +449,15 @@ export default function Home({ params: { slug } }) {
                         </>
                       )}
                     </div>
-                    {/* <div
+                    <div
                       className="content"
-                      onClick={() => downloadImage(lokasi_file)}
+                      onClick={() => downloadImageMember(foto_id)}
                     >
                       <span className="download">
                         <MdFileDownload />
                       </span>
                       <span className="unduh">Unduh</span>
-                    </div> */}
+                    </div>
                   </div>
                   <div className="container-detail mt-2">
                     <div className="row" style={{ marginTop: "20px" }}>

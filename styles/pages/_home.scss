@@ -292,19 +292,18 @@ textarea {
   cursor: pointer;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-z .icon-size {
+
+.icon-size {
   font-size: 30px;
 }
 
-.edit {
-  margin-top: 6%;
-  margin-bottom: 5%;
-}
+
 .upload {
   &__Unggah {
     margin-top: 9%;
     justify-content: center;
   }
+
   &__judul-upload {
     margin-top: 7%;
     display: flex;
@@ -356,6 +355,8 @@ z .icon-size {
     border-bottom: 3px dotted rgba(0, 0, 255, 0.85);
   }
 
+
+
   &__icon-upload {
     margin-top: 50px;
     height: 100px;
@@ -383,6 +384,7 @@ z .icon-size {
     font-size: 16px;
     cursor: pointer;
     margin-bottom: 7%;
+
     &:hover {
       background-color: #a9329d;
     }
@@ -843,85 +845,6 @@ label.btn {
   font-weight: 700;
 }
 
-.icon-subscribe-kecil {
-  font-size: 20px;
-}
-
-.judul-text-subscribe {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.harga-text-subscribe {
-  font-size: 30px;
-  font-weight: bolder;
-}
-
-.bulan-text-subscribe {
-  font-weight: 900;
-  font-size: 16px;
-  color: grey;
-  margin-left: 3px;
-}
-
-.jumlah-text-subscribe {
-  font-size: 14px;
-  font-weight: bolder;
-  color: #7c7a7a;
-}
-
-.text-subscribe-pajak {
-  font-size: 12px;
-  color: #7c7a7a;
-  margin-top: 5px;
-}
-
-.icon-bunder {
-  margin-top: 20px;
-  background-color: #d4f0ff;
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-}
-.icon-detail-subs {
-  display: flex;
-  justify-content: center;
-  margin-top: 18px;
-  font-size: 45px;
-}
-.iki-icon-telu {
-  color: #a9329d;
-}
-.atas-subs {
-  font-size: 20px;
-  font-weight: 900;
-}
-.bawah-subs {
-  text-align: center;
-  font-size: 16px;
-}
-.text-subs-detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.gambar-subs {
-  height: 100px;
-  object-fit: cover;
-  margin-bottom: 30px;
-}
-
-.judul-subs {
-  font-weight: bolder;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-.sub-judul-subs {
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-}
 
 .lds-ring-home {
   display: flex;

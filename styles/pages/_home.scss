@@ -267,8 +267,18 @@ textarea {
 .container-gambar {
   width: 90%;
   margin-left: 5%;
-  margin-top: 8%;
   margin-right: 5%;
+  margin-top: 7.5%;
+  margin-bottom: 5%;
+  columns: 5;
+  column-gap: 20px;
+}
+
+.container-gambar-2 {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
   margin-bottom: 5%;
   columns: 5;
   column-gap: 20px;
@@ -583,7 +593,7 @@ textarea {
 
 .image-detail {
   position: relative;
-  max-height: 500px;
+  max-height: 650px;
   width: 100%;
   height: 100%;
   object-fit: cover;

@@ -49,6 +49,7 @@ export const RenderMasonryGif = ({ gif }) => {
           <h2
             style={{
               width: "100%",
+              height: "50vh",
               display: "flex",
               justifyContent: "center",
               marginBottom: 32,

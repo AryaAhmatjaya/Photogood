@@ -499,14 +499,24 @@ export default function Home({ params: { slug } }) {
                           <img
                             src={user?.foto_profil}
                             alt="foto profil"
-                            className="image-foto-profil image-fluid"
+                            style={{
+                              objectFit: "cover",
+                              objectPosition: "center",
+                              width: "100%  ",
+                              height: "100%",
+                            }}
                           ></img>
                         ) : (
                           <Image
                             src={placeholderImage}
-                            alt="foto profil user"
-                            className="image-profil-comment"
-                          ></Image>
+                            alt="image-profil"
+                            style={{
+                              objectFit: "cover",
+                              objectPosition: "center",
+                              width: "100%  ",
+                              height: "100%",
+                            }}
+                          />
                         )}
                       </div>
                     </div>
@@ -529,21 +539,23 @@ export default function Home({ params: { slug } }) {
                         </span>
                       </div>
                     </div>
-                    <div
-                      className="col"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <div className="container-member">
-                        <span className="icon-gelar">
-                          <Image src={gifIcon} className="gifIcon"></Image>
-                        </span>
-                        <span className="text-gelar">Member</span>
+                    {user?.status === "2" && (
+                      <div
+                        className="col"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <div className="container-member">
+                          <span className="icon-gelar">
+                            <Image src={gifIcon} className="gifIcon"></Image>
+                          </span>
+                          <span className="text-gelar">Member</span>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </li>
               </div>

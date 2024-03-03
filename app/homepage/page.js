@@ -12,25 +12,21 @@ import Dropdown from "react-bootstrap/Dropdown";
 export default function Homepage() {
   // State Fetch Main Data
   const router = useRouter();
+  const [imageData, setImageData] = useState([]);
   const [gif, setGIF] = useState([]);
   const [vector, setVector] = useState([]);
   const [photo, setPhoto] = useState([]);
 
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("gif");
   const [loading, setLoading] = useState(true);
 
-  const fetchData = async (category) => {
+  const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await client.get(`/get-all-${category}`);
+      const response = await client.get(`/get-all-image`);
       console.log(response?.data);
-      if (category === "gif") {
-        setGIF(response?.data);
-      } else if (category === "photo") {
-        setPhoto(response?.data);
-      } else if (category === "vector") {
-        setVector(response?.data);
-      }
+      setImageData(response?.data);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -38,13 +34,20 @@ export default function Homepage() {
     }
   };
 
-  useEffect(() => {
-    fetchData(selectedCategory);
-  }, [selectedCategory]);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    router.push(
+      `/search-photo?judul_foto=${searchQuery}&category=${selectedCategory}`
+    );
+  };
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -84,22 +87,8 @@ export default function Homepage() {
               menyelesaikan tugas akhir agar lulus. Jadi website ini kami buat
               dengan pertimbangan guru pengajar kami.
             </p>
-
-            {/* <div className="search-beranda">
-              <form className="d-flex">
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-dark" type="submit">
-                  Search
-                </button>
-              </form>
-            </div> */}
           </div>
-          <div className="search-beranda">
+          <form className="search-beranda" onSubmit={handleSearch}>
             <div className="cari">
               <b>
                 <label className="search-beranda-label"> Telusuri </label>
@@ -110,55 +99,23 @@ export default function Homepage() {
                   id="cari"
                   name="cari"
                   placeholder="Telusuri berbagai Foto"
-                ></input>
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
             </div>
             <div className="cari">
               <b>
                 <label className="search-beranda-label"> Filter </label>
               </b>
-              {/* <div className="dropdown __web-inspector-hide-shortcut__">
-                <button
-                  className="btn-filter dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Pilih kategori gambar
-                </button>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Foto
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      GIF
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Fektor
-                    </a>
-                  </li>
-                  \
-                </ul>
-              </div> */}
               <Dropdown bsPrefix="dropdown custom-dropdown">
                 <Dropdown.Toggle className="custom-toggle">
                   Pilih kategori gambar
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="custom-menu">
-                  <Dropdown.Item onClick={() => handleCategoryChange("photo")}>
-                    Foto
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={() => handleCategoryChange("gif")}>
-                    GIF
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={() => handleCategoryChange("vector")}>
-                    Vektor
-                  </Dropdown.Item>
+                  <Dropdown.Item>Foto</Dropdown.Item>
+                  <Dropdown.Item>GIF</Dropdown.Item>
+                  <Dropdown.Item>Vektor</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
@@ -167,10 +124,10 @@ export default function Homepage() {
                 Search
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-      <div className="container-button">
+      {/* <div className="container-button">
         <button
           type="button"
           className={`button-telu ${
@@ -198,23 +155,21 @@ export default function Homepage() {
         >
           <MdBrush style={{ fontSize: "30px" }} /> Vektor
         </button>
-      </div>
+      </div> */}
       {loading ? (
         <div
           style={{
             width: "100%",
             display: "flex",
             justifyContent: "center",
-            marginBottom: 32,
+            marginTop: 48,
           }}
         >
           <LoadingSpinnerHome />
         </div>
       ) : (
         <>
-          {selectedCategory === "gif" && <RenderMasonryGif gif={gif} />}
-          {selectedCategory === "photo" && <RenderMasonryGif gif={photo} />}
-          {selectedCategory === "vector" && <RenderMasonryGif gif={vector} />}
+          <RenderMasonryGif gif={imageData} />
         </>
       )}
       <Footer />

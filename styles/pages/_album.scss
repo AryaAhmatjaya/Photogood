@@ -1,0 +1,39 @@
+.card mb-4{
+    margin-bottom: 5% !important;
+}
+
+.container-album {
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-right: 2%;
+  margin-bottom: 5%;
+  columns: 4;
+  column-gap: 2%;
+}
+
+.container-album .kotak {
+  width: 100%;
+  height: 50%;
+  margin-bottom: 20px;
+}
+
+.container-album .kotak .image {
+  width: 400px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.card-album {
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+}
+
+.gambar-album {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 200px;
+}

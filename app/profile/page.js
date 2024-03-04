@@ -149,7 +149,9 @@ export default function Home() {
             {post.length > 0 ? (
               <RenderPost data={post} />
             ) : (
-              <LoadingSpinnerHome />
+              <div style={{ marginTop: 20 }}>
+                <h2>User belum memposting apapun!</h2>
+              </div>
             )}
           </div>
         )}

@@ -109,6 +109,14 @@ export default function Home() {
     fetchUserDetail();
   }, []);
 
+  const formatStatus = () => {
+    if (userData && userData.status === "2") {
+      return "Member";
+    } else {
+      return "User";
+    }
+  };
+
   console.log(userData);
 
   return (
@@ -231,11 +239,7 @@ export default function Home() {
                       </label>
                       <input
                         type="text"
-                        defaultValue={
-                          userData && userData.status === "2"
-                            ? "Member"
-                            : "User"
-                        }
+                        defaultValue={userData?.status}
                         placeholder="Masukkan status anda"
                         className="form-control"
                         disabled

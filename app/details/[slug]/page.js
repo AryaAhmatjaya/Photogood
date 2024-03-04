@@ -1,4 +1,4 @@
-"use client";
+  "use client";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { Navbar } from "../../components/layout/Navbar";
@@ -259,6 +259,36 @@ export default function Home({ params: { slug } }) {
       };
       const response = await client.post(
         `v2/download-photo/${foto_id}`,
+        payload,
+        { responseType: "blob" }
+      );
+      console.log(response);
+
+      const url = URL.createObjectURL(new Blob([response.data]));
+
+      const contentType = response.headers["content-type"];
+      const ext = contentType.split("/").pop();
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${judul_foto}.${ext}`;
+      document.body.appendChild(link);
+      link.click();
+
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const downloadImageUser = async (judul_foto, foto_id) => {
+    console.log(foto_id);
+    try {
+      const payload = {
+        user_id: userData?.user_id,
+      };
+      const response = await client.post(
+        `v1/download-photo/${foto_id}`,
         payload,
         { responseType: "blob" }
       );

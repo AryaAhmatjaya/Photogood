@@ -159,14 +159,14 @@ export default function Home() {
                         src={imagePreview}
                         alt="Preview"
                         className="d-block ui-w-80 h-100 rounded-circle"
-                        style={{ objectFit: "cover", objectPosition: "center" }}
+                        style={{ objectFit: "contain", objectPosition: "center" }}
                       />
                     ) : userData && userData.foto_profil ? (
                       <img
                         src={userData.foto_profil}
                         alt="Foto Profil"
                         className="d-block ui-w-80 h-100 rounded-circle"
-                        style={{ objectFit: "cover", objectPosition: "center" }}
+                        style={{ objectFit: "contain", objectPosition: "center" }}
                       />
                     ) : (
                       <img
@@ -197,7 +197,7 @@ export default function Home() {
                       type="text"
                       value={username}
                       defaultValue={userData?.username}
-                      className="form-control"
+                      className="form-controll"
                       onChange={handleUsernameChange}
                       placeholder="Masukkan username anda"
                     />
@@ -214,7 +214,7 @@ export default function Home() {
                         defaultValue={userData?.nama_lengkap}
                         onChange={handleFullNameChange}
                         placeholder="Masukkan nama lengkap anda"
-                        className="form-control"
+                        className="form-controll"
                       />
                     </div>
                   </div>
@@ -230,7 +230,7 @@ export default function Home() {
                         onChange={handleEmailChange}
                         defaultValue={userData?.email}
                         placeholder="Masukkan alamat email anda"
-                        className="form-control"
+                        className="form-controll"
                       />
                     </div>
                     <div class="col-md-6">
@@ -241,7 +241,7 @@ export default function Home() {
                         type="text"
                         defaultValue={userData?.status}
                         placeholder="Masukkan status anda"
-                        className="form-control"
+                        className="form-controll"
                         disabled
                       />
                     </div>
@@ -255,7 +255,7 @@ export default function Home() {
                       defaultValue={userData?.alamat}
                       onChange={handleAddressChange}
                       placeholder="Masukkan alamat anda"
-                      className="form-control"
+                      className="form-controll"
                     ></textarea>
                   </div>
                   <button

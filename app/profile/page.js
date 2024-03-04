@@ -4,6 +4,7 @@ import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
 import { RenderPost } from "../components/RenderPost";
 import { RenderAlbum } from "../components/RenderAlbum";
+import { RenderAlbumProfile } from "../components/RenderAlbumProfile";
 import { RenderSaved } from "../components/RenderSaved";
 import { LoadingSpinnerHome } from "../components/LoadingSpinnerHome";
 import { LoadingSpinner } from "../components/LoadingSpinner";
@@ -13,11 +14,30 @@ import client from "../utils/router";
 
 export default function Home() {
   const [userData, setUserData] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [post, setPost] = useState([]);
   const [saved, setSaved] = useState([]);
   const [album, setAlbum] = useState([]);
   const [activeTab, setActiveTab] = useState("Post");
   const [loading, setLoading] = useState(true);
+  const [judul, setJudul] = useState("");
+  const [deskripsi, setDeskripsi] = useState("");
+
+  const handleJudulChange = (event) => {
+    setJudul(event.target.value);
+  };
+
+  const handleDeskripsiChange = (event) => {
+    setDeskripsi(event.target.value);
+  };
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const fetchUserDetail = async () => {
     try {
@@ -71,6 +91,28 @@ export default function Home() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const storeMemberAlbum = async (e) => {
+    e.preventDefault();
+    try {
+      const payload = {
+        user_id: String(userData?.user_id),
+        nama_album: judul,
+        deskripsi_album: deskripsi,
+      };
+      const response = await client.post(`v2/store-album`, payload);
+      console.log(response?.data, "RESPONSE IN BOTTOM SHEET ALBUM");
+      if (response?.status === 200) {
+        // onRefresh();
+        // alert("Album berhasil ditambahkan!");
+        fetchData();
+        console.log("berhasil ditambahkan");
+      }
+    } catch (error) {
+      console.error(error);
+      // alert(error?.response?.data.message);
+    }
+  };
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -169,10 +211,10 @@ export default function Home() {
         {activeTab === "Album" && (
           <div className="album-container">
             {album.length > 0 ? (
-              <RenderAlbum data={album} fetchData={fetchData} />
+              <RenderAlbumProfile data={album} fetchData={fetchData} />
             ) : (
               <>
-                <RenderAlbum data={album} fetchData={fetchData} />
+                <LoadingSpinnerHome />
               </>
             )}
           </div>
